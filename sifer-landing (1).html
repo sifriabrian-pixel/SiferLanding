@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sifer — Tecnología Comercial para Inmobiliarias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #162235;
+    --blue: #2762EA;
+    --blue-light: #4A7EF5;
+    --white: #FFFFFF;
+    --off-white: #F7F8FC;
+    --gray-light: #EEF1F8;
+    --gray-mid: #B0BAD0;
+    --gray-text: #6B7A99;
+    --text-dark: #0D1B2A;
+    --border: rgba(13, 27, 42, 0.08);
+    --border-blue: rgba(39, 98, 234, 0.2);
+    --shadow-sm: 0 2px 12px rgba(13,27,42,0.06);
+    --shadow-md: 0 8px 32px rgba(13,27,42,0.1);
+    --shadow-lg: 0 24px 64px rgba(13,27,42,0.14);
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 20px;
+    --r-xl: 32px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.15;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13, 27, 42, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .logo span { color: var(--blue-light); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .btn-nav {
+    background: var(--blue);
+    color: var(--white) !important;
+    padding: 0.55rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .btn-nav:hover { background: var(--blue-light) !important; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 2rem 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(39,98,234,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(39,98,234,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(39,98,234,0.15);
+    border: 1px solid rgba(39,98,234,0.3);
+    color: var(--blue-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-eyebrow-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    max-width: 820px;
+    letter-spacing: -0.03em;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--blue-light);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: var(--r-sm);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    color: rgba(255,255,255,0.65);
+    padding: 0.9rem 1.5rem;
+    border-radius: var(--r-sm);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-stat-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-stat-num span { color: var(--blue-light); }
+
+  .hero-stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ===== SECTIONS BASE ===== */
+  section { padding: 100px 2rem; }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--gray-text);
+    max-width: 540px;
+    line-height: 1.75;
+  }
+
+  /* ===== PROBLEM ===== */
+  .problem {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .problem .section-eyebrow { color: var(--blue-light); }
+  .problem .section-title { color: var(--white); }
+  .problem .section-sub { color: rgba(255,255,255,0.5); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .problem-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .problem-headline em {
+    font-style: normal;
+    color: var(--blue-light);
+  }
+
+  .problem-body {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .problem-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .problem-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  .problem-list-icon {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(39,98,234,0.2);
+    border: 1px solid rgba(39,98,234,0.4);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  .problem-list-icon::after {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blue-light);
+  }
+
+  .problem-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--r-xl);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .problem-card-quote {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .problem-card-quote em {
+    font-style: normal;
+    color: var(--blue-light);
+  }
+
+  .problem-bullets {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .problem-bullet {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    padding: 0.6rem 0.75rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: var(--r-sm);
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .problem-bullet::before {
+    content: '?';
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--blue-light);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+  }
+
+  /* ===== SOLUTION ===== */
+  .solution { background: var(--off-white); }
+
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .solution-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .solution-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+
+  .solution-icon {
+    width: 48px; height: 48px;
+    border-radius: var(--r-sm);
+    background: rgba(39,98,234,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+  }
+
+  .solution-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; stroke-width: 2; stroke-linecap: round; }
+
+  .solution-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-dark);
+  }
+
+  .solution-card p {
+    font-size: 0.88rem;
+    color: var(--gray-text);
+    line-height: 1.75;
+  }
+
+  .solution-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(39,98,234,0.08);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+
+  /* ===== HOW IT WORKS ===== */
+  .how {
+    background: var(--white);
+  }
+
+  .how-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    gap: 2rem;
+  }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .how-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(12.5% + 20px);
+    right: calc(12.5% + 20px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--blue) 0%, rgba(39,98,234,0.15) 100%);
+    z-index: 0;
+  }
+
+  .how-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+  }
+
+  .step-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--blue);
+    letter-spacing: 0.05em;
+    background: rgba(39,98,234,0.08);
+    border: 1px solid rgba(39,98,234,0.2);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .how-step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .how-step p {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    line-height: 1.7;
+  }
+
+  /* ===== BENEFITS ===== */
+  .benefits { background: var(--navy); }
+  .benefits .section-eyebrow { color: var(--blue-light); }
+  .benefits .section-title { color: var(--white); }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .benefit-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--r-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.2s;
+  }
+
+  .benefit-card:hover { border-color: rgba(39,98,234,0.4); }
+
+  .benefit-check {
+    font-size: 1.25rem;
+  }
+
+  .benefit-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .benefit-card p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  /* ===== BEFORE / AFTER ===== */
+  .compare { background: var(--off-white); }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+
+  .compare-col {
+    background: var(--white);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .compare-col-header {
+    padding: 1.25rem 1.75rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .compare-col.before .compare-col-header {
+    background: #FFF5F5;
+    color: #C0392B;
+    border-bottom: 1px solid #FFE0DC;
+  }
+
+  .compare-col.after .compare-col-header {
+    background: rgba(39,98,234,0.06);
+    color: var(--blue);
+    border-bottom: 1px solid rgba(39,98,234,0.1);
+  }
+
+  .compare-items {
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .compare-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--gray-text);
+    line-height: 1.5;
+  }
+
+  .compare-item-icon {
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .compare-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .compare-arrow svg {
+    width: 40px; height: 40px;
+    stroke: var(--blue);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials { background: var(--white); }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonials-sub {
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    margin-bottom: 4rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .testi-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .testi-card:hover { box-shadow: var(--shadow-md); }
+
+  .testi-card.featured {
+    background: var(--navy);
+    border-color: transparent;
+  }
+
+  .testi-stars {
+    display: flex;
+    gap: 3px;
+    color: #F5A623;
+    font-size: 0.9rem;
+  }
+
+  .testi-quote {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .testi-card.featured .testi-quote { color: rgba(255,255,255,0.6); }
+
+  .testi-quote strong {
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  .testi-card.featured .testi-quote strong { color: var(--white); }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .testi-card.featured .testi-author { border-top-color: rgba(255,255,255,0.1); }
+
+  .testi-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .testi-card.featured .testi-avatar {
+    background: rgba(39,98,234,0.2);
+    color: var(--blue-light);
+  }
+
+  .testi-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+  }
+
+  .testi-card.featured .testi-name { color: var(--white); }
+
+  .testi-role {
+    font-size: 0.78rem;
+    color: var(--gray-text);
+    line-height: 1.2;
+  }
+
+  .testi-card.featured .testi-role { color: rgba(255,255,255,0.4); }
+
+  .testi-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(39,98,234,0.08);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+
+  .testi-card.featured .testi-tag {
+    background: rgba(74,126,245,0.2);
+    color: var(--blue-light);
+  }
+
+  /* ===== PRICING ===== */
+  .pricing { background: var(--off-white); }
+
+  .pricing-header { text-align: center; margin-bottom: 4rem; }
+  .pricing .section-eyebrow { text-align: center; }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .plan-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .plan-card.featured {
+    background: var(--navy);
+    border-color: transparent;
+    position: relative;
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .plan-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  .plan-card.featured .plan-name { color: var(--blue-light); }
+
+  .plan-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .plan-card.featured .plan-price { color: var(--white); }
+
+  .plan-price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray-text);
+    letter-spacing: 0;
+  }
+
+  .plan-card.featured .plan-price span { color: rgba(255,255,255,0.4); }
+
+  .plan-desc {
+    font-size: 0.88rem;
+    color: var(--gray-text);
+    line-height: 1.6;
+  }
+
+  .plan-card.featured .plan-desc { color: rgba(255,255,255,0.5); }
+
+  .plan-divider {
+    height: 1px;
+    background: var(--border);
+  }
+
+  .plan-card.featured .plan-divider { background: rgba(255,255,255,0.08); }
+
+  .plan-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    list-style: none;
+    flex: 1;
+  }
+
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--gray-text);
+    line-height: 1.5;
+  }
+
+  .plan-card.featured .plan-features li { color: rgba(255,255,255,0.6); }
+
+  .plan-features li::before {
+    content: '✓';
+    color: var(--blue);
+    font-weight: 700;
+    flex-shrink: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .plan-card.featured .plan-features li::before { color: var(--blue-light); }
+
+  .btn-plan-primary {
+    background: var(--blue);
+    color: var(--white);
+    padding: 0.9rem 1.5rem;
+    border-radius: var(--r-sm);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    transition: background 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-plan-primary:hover { background: var(--blue-light); }
+
+  .btn-plan-outline {
+    background: transparent;
+    color: var(--text-dark);
+    padding: 0.9rem 1.5rem;
+    border-radius: var(--r-sm);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-plan-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+  /* ===== FAQ ===== */
+  .faq { background: var(--white); }
+
+  .faq-header { text-align: center; margin-bottom: 4rem; }
+
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-item:last-child { border-bottom: none; }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.4rem 1.75rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.93rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: background 0.15s;
+  }
+
+  .faq-q:hover { background: var(--off-white); }
+
+  .faq-q-icon {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+    color: var(--blue);
+    transition: transform 0.25s;
+  }
+
+  .faq-item.open .faq-q-icon { transform: rotate(45deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-item.open .faq-a { max-height: 300px; }
+
+  .faq-a-inner {
+    padding: 0 1.75rem 1.4rem;
+    font-size: 0.88rem;
+    color: var(--gray-text);
+    line-height: 1.75;
+  }
+
+  /* ===== FINAL CTA ===== */
+  .final-cta {
+    background: var(--navy);
+    padding: 120px 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(39,98,234,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-cta-inner { position: relative; z-index: 1; }
+
+  .final-cta h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .final-cta h2 em { font-style: normal; color: var(--blue-light); }
+
+  .final-cta p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2.5rem;
+  }
+
+  .final-cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #08111C;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .footer-logo span { color: var(--blue-light); }
+
+  .footer-sub {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+  .footer-copy {
+    width: 100%;
+    text-align: center;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.2);
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* ===== DIVIDER ===== */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .problem-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .solution-grid { grid-template-columns: 1fr 1fr; }
+    .how-steps { grid-template-columns: 1fr 1fr; }
+    .how-steps::before { display: none; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .compare-arrow { transform: rotate(90deg); }
+    .nav-links { display: none; }
+    .how-header { flex-direction: column; align-items: flex-start; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 72px 1.25rem; }
+    .hero { padding: 100px 1.25rem 64px; }
+    .solution-grid { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .how-steps { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.75rem; }
+    .final-cta { padding: 80px 1.25rem; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Si<span>fer</span></a>
+    <ul class="nav-links">
+      <li><a href="#solucion">Solución</a></li>
+      <li><a href="#testimonios">Casos reales</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://calendar.google.com" target="_blank" class="btn-nav">Hablar con el equipo</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      Tecnología Comercial para Inmobiliarias
+    </div>
+    <h1>
+      Más operaciones.<br>
+      <em>Menos fricción.</em>
+    </h1>
+    <p class="hero-sub">
+      Combinamos ADS de performance, Agentes de IA y automatización comercial en un solo sistema — para que ningún lead se pierda y tu equipo cierre más sin trabajar el doble.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://calendar.google.com" target="_blank" class="btn-primary">
+        Agendar llamada gratuita →
+      </a>
+      <a href="#solucion" class="btn-ghost">Ver cómo funciona</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">5<span> min</span></div>
+        <div class="hero-stat-label">Tiempo de respuesta al lead</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">24<span>/7</span></div>
+        <div class="hero-stat-label">Seguimiento automatizado</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3<span>x</span></div>
+        <div class="hero-stat-label">Más operaciones cerradas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problema">
+  <div class="container">
+    <div class="section-eyebrow">El problema real</div>
+    <div class="problem-grid">
+      <div>
+        <div class="problem-headline">
+          Los leads <em>no siempre</em><br>son el problema.
+        </div>
+        <p class="problem-body">
+          El sector inmobiliario en LATAM tiene un problema estructural de proceso. El 80% de los leads no recibe respuesta en menos de 5 minutos — la ventana crítica de conversión. Los equipos comerciales trabajan con WhatsApp, Excel y memoria humana.
+        </p>
+        <ul class="problem-list">
+          <li>
+            <div class="problem-list-icon"></div>
+            La inversión en publicidad se pierde por falta de proceso después del lead
+          </li>
+          <li>
+            <div class="problem-list-icon"></div>
+            Sin visibilidad del embudo: no saben cuántos leads entran ni cuántos cierran
+          </li>
+          <li>
+            <div class="problem-list-icon"></div>
+            El proceso comercial depende de una o dos personas clave
+          </li>
+          <li>
+            <div class="problem-list-icon"></div>
+            Los portales son cada vez más caros y menos efectivos
+          </li>
+        </ul>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-quote">
+          "Yo sé que me estoy perdiendo ventas, pero no sé <em>exactamente dónde se rompe el proceso.</em>"
+        </div>
+        <div class="problem-bullets">
+          <div class="problem-bullet">¿Respondés a tiempo?</div>
+          <div class="problem-bullet">¿Hacés seguimiento sistemático?</div>
+          <div class="problem-bullet">¿Tenés visibilidad del embudo completo?</div>
+          <div class="problem-bullet">¿Sabés qué lead generó cada peso invertido?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solucion">
+  <div class="container">
+    <div class="section-eyebrow">La solución Sifer</div>
+    <h2 class="section-title">Un sistema, no servicios sueltos</h2>
+    <p class="section-sub">Integramos generación de demanda, calificación por IA y seguimiento estructurado en un sistema que opera solo.</p>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="solution-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <h3>ADS de Performance</h3>
+        <p>Campañas en Meta y Google diseñadas exclusivamente para el sector inmobiliario. No volumen, leads calificados.</p>
+        <span class="solution-tag">Meta + Google</span>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 12l4-4"/></svg>
+        </div>
+        <h3>Agente de IA 24/7</h3>
+        <p>Respuesta inmediata, calificación automática y nurturing por WhatsApp sin intervención humana constante.</p>
+        <span class="solution-tag">IA + WhatsApp</span>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v7M14 17.5h7"/></svg>
+        </div>
+        <h3>Automatización Comercial</h3>
+        <p>Flujos de seguimiento, secuencias de contacto y visibilidad total del embudo comercial.</p>
+        <span class="solution-tag">Automatización</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="como">
+  <div class="container">
+    <div class="how-header">
+      <div>
+        <div class="section-eyebrow">Cómo funciona</div>
+        <h2 class="section-title">Del lead a la operación</h2>
+      </div>
+      <p class="section-sub" style="max-width: 360px; text-align: right;">Un proceso diseñado para que nada quede en el camino.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <h3>Atracción</h3>
+        <p>Campañas de performance orientadas a leads calificados del sector inmobiliario.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <h3>Respuesta inmediata</h3>
+        <p>El Agente de IA responde en segundos, califica el interés y agenda la consulta.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <h3>Seguimiento automatizado</h3>
+        <p>Secuencias de contacto y nurturing sin que tu equipo tenga que recordar nada.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">04</div>
+        <h3>Optimización continua</h3>
+        <p>Ajuste de campañas y procesos en base a datos reales de conversión, no intuición.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="compare">
+  <div class="container">
+    <div class="section-eyebrow" style="text-align:center;">Antes y después</div>
+    <h2 class="section-title" style="text-align:center;">Así cambia tu operación comercial</h2>
+    <div class="compare-grid">
+      <div class="compare-col before">
+        <div class="compare-col-header">❌ Sin Sifer</div>
+        <div class="compare-items">
+          <div class="compare-item">
+            <span class="compare-item-icon">✗</span>
+            Leads que esperan horas para ser contactados
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon">✗</span>
+            Seguimiento dependiente de la memoria del asesor
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon">✗</span>
+            Sin visibilidad de qué campaña genera operaciones
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon">✗</span>
+            Inversión en publicidad sin ROI claro
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon">✗</span>
+            El proceso depende de 1-2 personas clave
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon">✗</span>
+            Excel, WhatsApp y papeles como "sistema"
+          </div>
+        </div>
+      </div>
+      <div class="compare-arrow">
+        <svg viewBox="0 0 40 40"><path d="M8 20h24M22 12l10 8-10 8"/></svg>
+      </div>
+      <div class="compare-col after">
+        <div class="compare-col-header">✓ Con Sifer</div>
+        <div class="compare-items">
+          <div class="compare-item">
+            <span class="compare-item-icon" style="color:var(--blue)">✓</span>
+            Respuesta automática en menos de 5 minutos, 24/7
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon" style="color:var(--blue)">✓</span>
+            Secuencias de seguimiento que operan solas
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon" style="color:var(--blue)">✓</span>
+            Dashboard con métricas de conversión en tiempo real
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon" style="color:var(--blue)">✓</span>
+            Costo por operación cerrada, no por clic
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon" style="color:var(--blue)">✓</span>
+            Sistema que escala sin contratar más personal
+          </div>
+          <div class="compare-item">
+            <span class="compare-item-icon" style="color:var(--blue)">✓</span>
+            Proceso replicable e independiente de personas
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="container">
+    <div class="section-eyebrow">Por qué Sifer</div>
+    <h2 class="section-title" style="color:var(--white);">Lo que nos diferencia</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-check">🎯</div>
+        <h3>Especialización vertical</h3>
+        <p>Solo trabajamos con el sector inmobiliario y de construcción. Conocemos el negocio desde adentro.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-check">⚙️</div>
+        <h3>Sistema, no servicio suelto</h3>
+        <p>No vendemos ADS solos ni automatización aislada. Vendemos el sistema completo integrado.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-check">📊</div>
+        <h3>Foco en resultado real</h3>
+        <p>La métrica no es el lead, es la operación cerrada. Medimos lo que importa para tu negocio.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-check">🌎</div>
+        <h3>LATAM nativo</h3>
+        <p>Conocemos el comportamiento del comprador y del vendedor de la región. No adaptamos, entendemos.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-check">⚡</div>
+        <h3>Implementación rápida</h3>
+        <p>No requiere cambio tecnológico radical. Nos integramos con las herramientas que ya usás.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-check">🤝</div>
+        <h3>Partner estratégico</h3>
+        <p>No somos un proveedor. Somos el socio de crecimiento que necesita tu operación comercial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS CLIENTES -->
+<section style="background: var(--white); padding: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div style="max-width:100%;">
+    <p style="text-align:center; font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--gray-text); padding:1.5rem 0 0; margin-bottom:1.5rem;">Confían en Sifer</p>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); align-items:center; gap:0; max-width:100%;">
+      <div style="display:flex; align-items:center; justify-content:center; padding:1.5rem 2rem; border-right:1px solid var(--border); filter:grayscale(100%); opacity:0.5; transition:opacity 0.2s, filter 0.2s;" onmouseover="this.style.opacity='1';this.style.filter='grayscale(0%)'" onmouseout="this.style.opacity='0.5';this.style.filter='grayscale(100%)'">
+        <img src="data:image/png;base64,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" alt="RE/MAX Forum" style="height:48px; width:auto; object-fit:contain;">
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center; padding:1.5rem 2rem; border-right:1px solid var(--border); filter:grayscale(100%); opacity:0.5; transition:opacity 0.2s, filter 0.2s;" onmouseover="this.style.opacity='1';this.style.filter='grayscale(0%)'" onmouseout="this.style.opacity='0.5';this.style.filter='grayscale(100%)'">
+        <img src="data:image/png;base64,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5LswuiKeLykF+O7YkfCSQ1wbseRH4q1oqV02JPaR28lP3OLOY6PK4uahLI+Nku27m7bjYg/guDD6br4zFS4+KxLI2SQycTwNwS3hI5ehTiKx45dcmu5yqaWjnoVW1K4ia4u8SfUB9gC6ERdJaICIikBERAEREAREQBERAEO+x2G58EQ77Hbbfu3QFBqZF+QmlOT1LYxVsSOaKzR1bWAHlvuOatD8gzE4aCW7bdekcQxjomAumcewNAUZcZqKZrq9vB4q/vuGy9Zs3b0gjf4Lnl0pbGmaVQSxTWqkxm4HOIjcCebN+0etY55zvS3/AL/+/wBFz0/JM0M62e6KNihap2XsL4mTADrAO3Y9m69V89TlwEuYIfHFCHdYx30muaduE+ns+IUbp7DvjyjbdjB16QiYerd5U6R/EeR27ttt18r+nbs2ckhi4Pke1YZast4ufG3fdu3g4hpK7V5eOznU7JW1n4oY6jW07M1u1H1rK0bQXhvi7uAX5X1DWkpXppK9iCaiwvnryN2eBtvy8QVw6owc9rLQZSvWiucMPUyV3ymPcbkgtcO/n3rxUwkwwuUaMXXp2rUDoo2snc8kFvIOJ5dvgjrLyaGp0dLNV19oJpcfdhpzFrW2XsAZufr29KsKr2Yxdyxo6vjYo2GyxkALS7YbtLd+fuKsKsxut6o5rXsERFachERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH//2Q==" alt="Century 21 Seven" style="height:48px; width:auto; object-fit:contain;">
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center; padding:1.5rem 2rem; border-right:1px solid var(--border); filter:grayscale(100%); opacity:0.5; transition:opacity 0.2s, filter 0.2s;" onmouseover="this.style.opacity='1';this.style.filter='grayscale(0%)'" onmouseout="this.style.opacity='0.5';this.style.filter='grayscale(100%)'">
+        <img src="data:image/jpeg;base64,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" alt="Forja Propiedades" style="height:48px; width:auto; object-fit:contain; border-radius:4px;">
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center; padding:1.5rem 2rem;  filter:grayscale(100%); opacity:0.5; transition:opacity 0.2s, filter 0.2s;" onmouseover="this.style.opacity='1';this.style.filter='grayscale(0%)'" onmouseout="this.style.opacity='0.5';this.style.filter='grayscale(100%)'">
+        <img src="data:image/png;base64,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" alt="Allegra Casa Inmobiliaria" style="height:48px; width:auto; object-fit:contain;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials" id="testimonios">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-eyebrow" style="text-align:center;">Resultados reales</div>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+    </div>
+    <p class="testimonials-sub">Inmobiliarias y desarrolladoras de LATAM que ya tienen el sistema funcionando.</p>
+    <div class="testimonials-grid" style="grid-template-columns: repeat(3,1fr);">
+
+      <div class="testi-card featured">
+        <span class="testi-tag">Destacado</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote" style="font-style:italic; color:rgba(255,255,255,0.5); font-size:0.95rem;">"Testimonio real próximamente"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">—</div>
+          <div>
+            <div class="testi-name">Nombre del cliente</div>
+            <div class="testi-role">Rol — Empresa, País</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote" style="font-style:italic; color:var(--gray-mid); font-size:0.95rem;">"Testimonio real próximamente"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">—</div>
+          <div>
+            <div class="testi-name">Nombre del cliente</div>
+            <div class="testi-role">Rol — Empresa, País</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote" style="font-style:italic; color:var(--gray-mid); font-size:0.95rem;">"Testimonio real próximamente"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">—</div>
+          <div>
+            <div class="testi-name">Nombre del cliente</div>
+            <div class="testi-role">Rol — Empresa, País</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="precios">
+  <div class="container">
+    <div class="pricing-header">
+      <div class="section-eyebrow">Precios</div>
+      <h2 class="section-title">Inversión clara, resultado medible</h2>
+      <p class="section-sub" style="margin: 0 auto; text-align: center;">Sin contratos a largo plazo. Sin letra chica.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div class="plan-name">Sistema Core</div>
+        <div class="plan-price">A conversar <span>/ mes</span></div>
+        <p class="plan-desc">Para inmobiliarias que quieren empezar a sistematizar su operación comercial.</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Campaña Meta Ads gestionada por Sifer</li>
+          <li>Agente de IA en WhatsApp (calificación automática)</li>
+          <li>Flujos de seguimiento automatizados</li>
+          <li>Integración con tu CRM actual</li>
+          <li>Reporte mensual de performance</li>
+          <li>Soporte por WhatsApp</li>
+        </ul>
+        <a href="https://calendar.google.com" target="_blank" class="btn-plan-outline">Consultar precio</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">Más elegido</div>
+        <div class="plan-name">Sistema Completo</div>
+        <div class="plan-price">A conversar <span>/ mes</span></div>
+        <p class="plan-desc">Para inmobiliarias y desarrolladoras que quieren el sistema de crecimiento completo.</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Todo lo del plan Core</li>
+          <li>Meta Ads + Google Ads (campañas duales)</li>
+          <li>Agente de IA avanzado con calificación profunda</li>
+          <li>Automatización completa del embudo comercial</li>
+          <li>Dashboard de métricas en tiempo real</li>
+          <li>Optimización continua semanal</li>
+          <li>Reunión mensual de estrategia</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="https://calendar.google.com" target="_blank" class="btn-plan-primary">Agendar llamada →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <div class="section-eyebrow">Preguntas frecuentes</div>
+      <h2 class="section-title">Todo lo que necesitás saber</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Necesito cambiar las herramientas que uso actualmente?
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">No. Sifer se integra con el CRM o herramientas que ya usás — sea WhatsApp Business, un CRM inmobiliario, o incluso Google Sheets. No requerimos un cambio tecnológico radical para arrancar.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Cuánto tiempo tarda la implementación?
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Entre 7 y 14 días hábiles desde la firma del contrato hasta el sistema operativo. En ese tiempo configuramos las campañas, el agente de IA y los flujos de seguimiento adaptados a tu negocio.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Sifer funciona para franquicias como RE/MAX o Century 21?
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Sí, y lo hacemos muy bien. Las franquicias tienen dinámicas distintas a las inmobiliarias independientes — broker-owners con presión de retener asesores, sistemas de la franquicia poco adoptados, y necesidad de diferenciarse de otras oficinas de la misma red. Tenemos experiencia específica con ese modelo.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Cuál es el presupuesto mínimo para ADS?
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Recomendamos un mínimo de USD 500/mes de inversión publicitaria para obtener volumen de leads suficiente que permita al sistema funcionar y optimizarse. Este presupuesto es aparte del fee de servicio de Sifer.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿El agente de IA reemplaza a mis asesores?
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">No. El agente automatiza la primera respuesta, calificación y seguimiento inicial — que es donde más leads se pierden. Tus asesores entran cuando el lead está calificado y listo para avanzar, con toda la información disponible. Trabajan menos en gestión y más en cierre.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Trabajamos con un contrato a largo plazo?
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Trabajamos con contratos mensuales renovables. Creemos que la mejor forma de retener un cliente es con resultados, no con cláusulas de permanencia. Dicho eso, los resultados más importantes se ven a partir del segundo y tercer mes de optimización.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿En qué países de LATAM trabajan?
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Trabajamos con inmobiliarias y desarrolladoras en Argentina, Uruguay, Paraguay, Chile, Colombia, Perú y México. Si estás en otro país de LATAM, conversemos — seguramente podemos trabajar juntos.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner container">
+    <h2>¿Listo para dejar de perder<br><em>operaciones por falta de proceso?</em></h2>
+    <p>Agendá una llamada de 30 minutos. Sin compromiso. Te mostramos exactamente cómo funciona el sistema para tu tipo de negocio.</p>
+    <div class="final-cta-actions">
+      <a href="https://calendar.google.com" target="_blank" class="btn-primary">
+        Agendar llamada gratuita →
+      </a>
+      <a href="https://wa.me/+5493415907951" target="_blank" class="btn-ghost">
+        Escribinos por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#" class="footer-logo">Si<span>fer</span></a>
+      <div class="footer-sub">Tecnología Comercial para Inmobiliarias</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#solucion">Solución</a></li>
+      <li><a href="#testimonios">Casos reales</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="mailto:hola@sifer.com">hola@sifer.com</a></li>
+      <li><a href="https://wa.me/+5493415907951" target="_blank">WhatsApp</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 Sifer — Tecnología Comercial para Inmobiliarias. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
