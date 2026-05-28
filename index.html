@@ -1168,30 +1168,146 @@
   }
 
   /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px) {
-    .problem-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .solution-grid { grid-template-columns: 1fr 1fr; }
+  /* ===== TABLET (max 1024px) ===== */
+  @media (max-width: 1024px) {
     .how-steps { grid-template-columns: 1fr 1fr; }
     .how-steps::before { display: none; }
-    .benefits-grid { grid-template-columns: 1fr 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr 1fr; }
-    .pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
-    .compare-grid { grid-template-columns: 1fr; }
-    .compare-arrow { transform: rotate(90deg); }
-    .nav-links { display: none; }
-    .how-header { flex-direction: column; align-items: flex-start; }
-    .footer-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .how-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .how-header .section-sub { text-align: left !important; max-width: 100%; }
   }
 
-  @media (max-width: 600px) {
-    section { padding: 72px 1.25rem; }
-    .hero { padding: 100px 1.25rem 64px; }
+  /* ===== TABLET PORTRAIT (max 900px) ===== */
+  @media (max-width: 900px) {
+    /* Nav */
+    .nav-links { display: none; }
+
+    /* Sections */
+    section { padding: 80px 1.75rem; }
+    .hero { padding: 110px 1.75rem 72px; }
+
+    /* Grids → 2 cols */
+    .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .solution-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .how-steps { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .testimonials-grid { grid-template-columns: 1fr 1fr !important; gap: 1.25rem; }
+
+    /* Pricing — stack */
+    .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+
+    /* Before/After — stack */
+    .compare-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .compare-arrow { transform: rotate(90deg); justify-self: center; }
+
+    /* Footer */
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .footer-links { flex-wrap: wrap; gap: 1rem; }
+
+    /* Hero stats */
+    .hero-stats { gap: 2rem; flex-wrap: wrap; }
+
+    /* How header */
+    .how-header { flex-direction: column; align-items: flex-start; }
+    .how-header .section-sub { text-align: left !important; max-width: 100%; }
+
+    /* Logos strip */
+    [style*="grid-template-columns:repeat(4,1fr)"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Pricing 3-col → 1-col */
+    [style*="grid-template-columns:repeat(3,1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* ===== MOBILE (max 640px) ===== */
+  @media (max-width: 640px) {
+    /* Base spacing */
+    section { padding: 64px 1.25rem; }
+    .hero { padding: 96px 1.25rem 60px; }
+    .final-cta { padding: 72px 1.25rem; }
+
+    /* Typography */
+    .hero h1 { font-size: 2.2rem; letter-spacing: -0.025em; }
+    .section-title { font-size: 1.7rem; }
+    .problem-headline { font-size: 1.75rem; }
+    .plan-price { font-size: 2rem; }
+
+    /* Hero */
+    .hero-sub { font-size: 0.95rem; }
+    .hero-stats { gap: 1.5rem; }
+    .hero-stat-num { font-size: 1.6rem; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .hero-ctas .btn-primary,
+    .hero-ctas .btn-ghost { text-align: center; justify-content: center; }
+
+    /* Grids → 1 col */
     .solution-grid { grid-template-columns: 1fr; }
-    .benefits-grid { grid-template-columns: 1fr; }
     .how-steps { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .hero-stats { gap: 1.75rem; }
-    .final-cta { padding: 80px 1.25rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr !important; }
+
+    /* Logos strip → 2x2 */
+    [style*="grid-template-columns:repeat(4,1fr)"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    /* Remove right borders on even items in 2-col logo grid */
+    [style*="grid-template-columns:repeat(2, 1fr)"] > div:nth-child(2n) {
+      border-right: none !important;
+    }
+
+    /* Pricing cards */
+    [style*="grid-template-columns:repeat(3,1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+    .plan-card { padding: 1.75rem 1.5rem; }
+    .plan-card.featured { margin-top: 1rem; }
+
+    /* Before/After */
+    .compare-items { padding: 1.25rem; }
+
+    /* Problem card */
+    .problem-card { padding: 1.75rem; }
+    .problem-headline { font-size: 1.65rem; }
+
+    /* FAQ */
+    .faq-q { padding: 1.1rem 1.25rem; font-size: 0.88rem; }
+    .faq-a-inner { padding: 0 1.25rem 1.1rem; }
+
+    /* Nav */
+    .nav-inner { padding: 0 1.25rem; }
+    .logo { font-size: 1.2rem; }
+
+    /* Footer */
+    .footer-inner { padding: 0; }
+    .footer-copy { font-size: 0.72rem; }
+
+    /* CTA buttons full width on mobile */
+    .final-cta-actions { flex-direction: column; align-items: stretch; }
+    .final-cta-actions .btn-primary,
+    .final-cta-actions .btn-ghost { text-align: center; justify-content: center; }
+
+    /* Testimonial cards */
+    .testi-card { padding: 1.5rem; }
+
+    /* Solution cards */
+    .solution-card { padding: 1.5rem; }
+
+    /* How steps */
+    .how-step { padding: 1.5rem; }
+
+    /* Section eyebrow */
+    .section-eyebrow { font-size: 0.7rem; }
+  }
+
+  /* ===== SMALL MOBILE (max 380px) ===== */
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 1.9rem; }
+    .section-title { font-size: 1.5rem; }
+    .hero-stats { flex-direction: column; gap: 1.25rem; }
+    .btn-primary { padding: 0.8rem 1.25rem; font-size: 0.88rem; }
+    .plan-price { font-size: 1.75rem; }
   }
 </style>
 </head>
