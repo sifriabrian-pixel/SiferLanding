@@ -1447,6 +1447,174 @@
   </div>
 </section>
 
+<!-- AGENTE DEMO -->
+<section style="background: var(--off-white); padding: 100px 2rem;" id="agente">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <div class="section-eyebrow">El agente en acción</div>
+      <h2 class="section-title">Así califica un lead en menos de 5 minutos</h2>
+      <p class="section-sub" style="margin:0 auto; text-align:center;">Sin intervención humana. Sin demoras. Las 24 horas.</p>
+    </div>
+
+    <div style="display:flex; justify-content:center;">
+      <div style="width:100%; max-width:380px;">
+
+        <div style="background:#ECE5DD; border-radius:20px; overflow:hidden; box-shadow:0 8px 40px rgba(13,27,42,0.14);">
+
+          <div style="background:#075E54; padding:13px 16px; display:flex; align-items:center; gap:10px;">
+            <div style="width:38px; height:38px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:800; color:#fff; flex-shrink:0; font-family:'Montserrat',sans-serif;">S</div>
+            <div>
+              <p style="margin:0; font-size:14px; font-weight:600; color:#fff; font-family:'Montserrat',sans-serif;">Sifer — Asistente IA</p>
+              <p style="margin:0; font-size:11px; color:rgba(255,255,255,0.7); font-family:'Poppins',sans-serif;" id="wa-status">en línea</p>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:14px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 9.39a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.72 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+            </div>
+          </div>
+
+          <div id="wa-chat" style="padding:12px; min-height:380px; max-height:480px; overflow-y:auto; display:flex; flex-direction:column; gap:8px; background:#ECE5DD;">
+            <div style="text-align:center; margin:8px 0;">
+              <span style="font-size:11px; background:rgba(0,0,0,0.1); color:#555; padding:4px 12px; border-radius:10px; font-family:'Poppins',sans-serif;">Hoy</span>
+            </div>
+          </div>
+
+          <div style="background:#F0F0F0; padding:10px 12px; display:flex; align-items:center; gap:8px; border-top:0.5px solid rgba(0,0,0,0.08);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <div style="flex:1; background:#fff; border-radius:20px; padding:8px 14px; font-size:13px; color:#aaa; font-family:'Poppins',sans-serif;">Mensaje</div>
+            <div style="width:36px; height:36px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-top:1.25rem;">
+          <button id="wa-replay" onclick="siferStartDemo()" style="font-size:13px; padding:8px 20px; border-radius:20px; cursor:pointer; background:var(--white); border:1.5px solid var(--border); color:var(--text-dark); font-family:'Poppins',sans-serif; display:flex; align-items:center; gap:6px; transition:border-color 0.2s;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            Repetir demo
+          </button>
+          <span style="font-size:12px; color:var(--gray-text); font-family:'Poppins',sans-serif;">Conversación real simulada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var msgs = [
+    { from:'lead', text:'Hola, vi el depto en Condesa que publicaron. ¿Sigue disponible?', delay:900 },
+    { from:'agent', text:'¡Hola! Soy el asistente de *Allegra Inmobiliaria* 👋
+
+¡Sí, está disponible! Te comparto la ficha:
+
+🏠 *Depto en Condesa, CDMX*
+📐 72 m² — 2 recámaras, 2 baños
+🏢 Piso 4 con balcón
+🚗 1 cajón de estacionamiento
+✅ Entrega inmediata
+
+¿Tenés alguna pregunta?', delay:1500 },
+    { from:'lead', text:'¿Cuánto cuesta?', delay:1000 },
+    { from:'agent', text:'El precio es *$3,850,000 MXN* 💰
+
+Incluye el cajón y mantenimiento del edificio. El condo tiene roof garden y gimnasio.', delay:1300 },
+    { from:'lead', text:'¿Acepta crédito hipotecario?', delay:1000 },
+    { from:'agent', text:'¡Sí! Trabaja con BBVA, Santander, Banorte e Infonavit 🏦
+
+Enganche mínimo del 10%. Te puedo conectar con un asesor financiero sin costo para simular tu crédito.', delay:1400 },
+    { from:'lead', text:'Me interesa verlo.', delay:900 },
+    { from:'agent', text:'¡Perfecto! 🙌 Tenemos visitas disponibles:
+
+📅 *Jueves — 11am o 5pm*
+📅 *Sábado — 10am o 12pm*
+
+¿Cuál te viene mejor? Te confirmo el asesor y la dirección exacta.', delay:1500 },
+    { from:'tag', text:'✅ Lead calificado — visita agendada', delay:600 },
+  ];
+
+  var tids = [];
+
+  function clearAll() { tids.forEach(clearTimeout); tids = []; }
+
+  function fmt(t) {
+    return t.replace(/\*(.*?)\*/g,'<strong>$1</strong>').replace(/
+/g,'<br>');
+  }
+
+  function makeBubble(msg) {
+    var wrap = document.createElement('div');
+    if (msg.from === 'tag') {
+      wrap.style.cssText = 'display:flex;justify-content:center;';
+      wrap.innerHTML = '<div style="font-size:11px;font-weight:600;color:#075E54;background:rgba(37,211,102,0.18);border:0.5px solid rgba(37,211,102,0.4);border-radius:12px;padding:6px 16px;font-family:Poppins,sans-serif;">' + msg.text + '</div>';
+      return wrap;
+    }
+    var isAgent = msg.from === 'agent';
+    wrap.style.cssText = 'display:flex;justify-content:' + (isAgent ? 'flex-start' : 'flex-end') + ';';
+    var bg = isAgent ? '#fff' : '#DCF8C6';
+    var br = isAgent ? '2px 14px 14px 14px' : '14px 2px 14px 14px';
+    wrap.innerHTML = '<div style="max-width:83%;background:' + bg + ';border-radius:' + br + ';padding:9px 12px;font-size:13px;line-height:1.55;color:#111;font-family:Poppins,sans-serif;">' +
+      fmt(msg.text) +
+      '<div style="font-size:10px;color:#999;text-align:right;margin-top:4px;">' + (isAgent ? '<span style="color:#4FC3F7;">✓✓</span> ' : '') + 'ahora</div>' +
+      '</div>';
+    return wrap;
+  }
+
+  function makeTyping() {
+    var wrap = document.createElement('div');
+    wrap.id = 'sifer-typing';
+    wrap.style.cssText = 'display:flex;justify-content:flex-start;';
+    wrap.innerHTML = '<div style="background:#fff;border-radius:2px 14px 14px 14px;padding:10px 14px;display:flex;gap:5px;align-items:center;">' +
+      '<span class="sifer-dot"></span><span class="sifer-dot" style="animation-delay:0.2s"></span><span class="sifer-dot" style="animation-delay:0.4s"></span>' +
+      '</div>';
+    return wrap;
+  }
+
+  window.siferStartDemo = function() {
+    clearAll();
+    var body = document.getElementById('wa-chat');
+    var status = document.getElementById('wa-status');
+    body.innerHTML = '<div style="text-align:center;margin:8px 0;"><span style="font-size:11px;background:rgba(0,0,0,0.1);color:#555;padding:4px 12px;border-radius:10px;font-family:Poppins,sans-serif;">Hoy</span></div>';
+    status.textContent = 'en línea';
+
+    var elapsed = 600;
+    msgs.forEach(function(msg) {
+      elapsed += msg.delay;
+      if (msg.from === 'agent') {
+        (function(e) {
+          var t = setTimeout(function() {
+            status.textContent = 'escribiendo...';
+            body.appendChild(makeTyping());
+            body.scrollTop = body.scrollHeight;
+          }, e - Math.min(msg.delay * 0.55, 800));
+          tids.push(t);
+        })(elapsed);
+      }
+      (function(e, m) {
+        var t = setTimeout(function() {
+          var typing = document.getElementById('sifer-typing');
+          if (typing) typing.remove();
+          if (m.from === 'agent') status.textContent = 'en línea';
+          body.appendChild(makeBubble(m));
+          body.scrollTop = body.scrollHeight;
+        }, e);
+        tids.push(t);
+      })(elapsed, msg);
+      elapsed += 250;
+    });
+  };
+
+  if (!document.getElementById('sifer-dot-style')) {
+    var s = document.createElement('style');
+    s.id = 'sifer-dot-style';
+    s.textContent = '@keyframes siferBlink{0%,80%,100%{opacity:.2;transform:scale(.75)}40%{opacity:1;transform:scale(1)}}.sifer-dot{width:7px;height:7px;border-radius:50%;background:#aaa;display:inline-block;animation:siferBlink 1.2s infinite;}';
+    document.head.appendChild(s);
+  }
+
+  setTimeout(siferStartDemo, 600);
+})();
+</script>
+
 <!-- HOW IT WORKS -->
 <section class="how" id="como">
   <div class="container">
