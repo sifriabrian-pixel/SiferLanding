@@ -1611,7 +1611,25 @@ Enganche mínimo del 10%. Te puedo conectar con un asesor financiero sin costo p
     document.head.appendChild(s);
   }
 
-  setTimeout(siferStartDemo, 600);
+  function initDemo() {
+    var chat = document.getElementById('wa-chat');
+    if (!chat) { setTimeout(initDemo, 200); return; }
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          siferStartDemo();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(chat);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDemo);
+  } else {
+    initDemo();
+  }
 })();
 </script>
 
