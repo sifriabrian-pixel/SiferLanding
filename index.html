@@ -63,7 +63,7 @@
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 2rem;
-    height: 68px;
+    height: 74px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -72,7 +72,7 @@
   .logo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    font-size: 1.4rem;
+    font-size: 1.65rem;
     color: var(--white);
     text-decoration: none;
     letter-spacing: -0.02em;
@@ -83,14 +83,14 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
     list-style: none;
   }
 
   .nav-links a {
     color: rgba(255,255,255,0.65);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.01em;
     transition: color 0.2s;
@@ -101,8 +101,9 @@
   .btn-nav {
     background: var(--blue);
     color: var(--white) !important;
-    padding: 0.55rem 1.25rem;
+    padding: 0.65rem 1.4rem;
     border-radius: 6px;
+    font-size: 0.88rem !important;
     font-weight: 600 !important;
     transition: background 0.2s !important;
   }
@@ -147,6 +148,44 @@
     width: 100%;
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-content { display: flex; flex-direction: column; }
+  .hero-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero-stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-lg);
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .hero-stat-card:hover { border-color: rgba(39,98,234,0.35); }
+  .hero-stat-card-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+  .hero-stat-card-num span { color: var(--blue-light); }
+  .hero-stat-card-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+    line-height: 1.4;
   }
 
   .hero-eyebrow {
@@ -795,29 +834,24 @@
 
   .testi-card.featured .testi-role { color: rgba(255,255,255,0.4); }
 
-  /* Logo dentro de la tarjeta */
-  .testi-logo {
-    display: flex;
-    align-items: center;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border);
+  /* Avatar con logo de empresa */
+  .testi-avatar-logo {
+    background: var(--white);
+    padding: 4px;
+    border: 1px solid var(--border);
+    overflow: hidden;
   }
 
-  .testi-card.featured .testi-logo { border-top-color: rgba(255,255,255,0.08); }
-
-  .testi-logo img {
-    height: 28px;
-    width: auto;
+  .testi-avatar-logo img {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.5;
-    transition: opacity 0.2s, filter 0.2s;
+    display: block;
   }
 
-  .testi-card:hover .testi-logo img,
-  .testi-card.featured .testi-logo img {
-    opacity: 0.75;
-    filter: grayscale(60%);
+  .testi-card.featured .testi-avatar-logo {
+    background: rgba(255,255,255,0.92);
+    border-color: rgba(255,255,255,0.2);
   }
 
   .testi-tag {
@@ -1157,6 +1191,9 @@
     .nav-links { display: none; }
     section { padding: 80px 1.75rem; }
     .hero { padding: 110px 1.75rem 72px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-aside { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+    .hero-stat-card { flex: 1; min-width: 160px; }
     .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .solution-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .how-steps { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
@@ -1174,6 +1211,9 @@
   @media (max-width: 640px) {
     section { padding: 64px 1.25rem; }
     .hero { padding: 96px 1.25rem 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-aside { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
+    .hero-stat-card { flex: 1; min-width: 140px; }
     .final-cta { padding: 72px 1.25rem; }
     .hero h1 { font-size: 2.2rem; letter-spacing: -0.025em; }
     .section-title { font-size: 1.7rem; }
@@ -1229,36 +1269,50 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-dot"></div>
-      Tecnología Comercial para Inmobiliarias
-    </div>
-    <h1>
-      Más operaciones.<br>
-      <em>Menos fricción.</em>
-    </h1>
-    <p class="hero-sub">
-      Combinamos ADS de performance, Agentes de IA y automatización comercial en un solo sistema — para que ningún lead se pierda y tu equipo cierre más sin trabajar el doble.
-    </p>
-    <p style="font-size:0.82rem; color:rgba(255,255,255,0.35); margin-bottom:2rem; font-weight:400; letter-spacing:0.02em;">Diseñado para inmobiliarias independientes, franquicias y desarrolladoras de LATAM.</p>
-    <div class="hero-ctas">
-      <a href="https://wa.me/5493415907951?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20para%20conocer%20su%20sistema%20comercial%21" target="_blank" class="btn-primary">
-        Agendar llamada gratuita →
-      </a>
-      <a href="#solucion" class="btn-ghost">Ver cómo funciona</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">5<span> min</span></div>
-        <div class="hero-stat-label">Tiempo de respuesta al lead</div>
+    <!-- Columna izquierda -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        Tecnología Comercial para Inmobiliarias
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">24<span>/7</span></div>
-        <div class="hero-stat-label">Seguimiento automatizado</div>
+      <h1>
+        Más operaciones.<br>
+        <em>Menos fricción.</em>
+      </h1>
+      <p class="hero-sub">
+        Combinamos ADS de performance, Agentes de IA y automatización comercial en un solo sistema — para que ningún lead se pierda y tu equipo cierre más sin trabajar el doble.
+      </p>
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.35); margin-bottom:2rem; font-weight:400; letter-spacing:0.02em;">Diseñado para inmobiliarias independientes, franquicias y desarrolladoras de LATAM.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5493415907951?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20para%20conocer%20su%20sistema%20comercial%21" target="_blank" class="btn-primary">
+          Agendar llamada gratuita →
+        </a>
+        <a href="#solucion" class="btn-ghost">Ver cómo funciona</a>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">3<span>x</span></div>
-        <div class="hero-stat-label">Más operaciones cerradas</div>
+    </div>
+
+    <!-- Columna derecha — stats -->
+    <div class="hero-aside">
+      <div class="hero-stat-card">
+        <div>
+          <div class="hero-stat-card-num">5<span> min</span></div>
+          <div class="hero-stat-card-label">Tiempo de respuesta<br>al lead</div>
+        </div>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(74,126,245,0.6)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div class="hero-stat-card">
+        <div>
+          <div class="hero-stat-card-num">24<span>/7</span></div>
+          <div class="hero-stat-card-label">Seguimiento<br>automatizado</div>
+        </div>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(74,126,245,0.6)" stroke-width="1.5" stroke-linecap="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l3 3"/></svg>
+      </div>
+      <div class="hero-stat-card">
+        <div>
+          <div class="hero-stat-card-num">3<span>x</span></div>
+          <div class="hero-stat-card-label">Más operaciones<br>cerradas</div>
+        </div>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(74,126,245,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
       </div>
     </div>
   </div>
@@ -1307,6 +1361,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div style="text-align:center; margin-top:3.5rem;">
+    <a href="https://wa.me/5493415907951?text=Hola%2C%20reconozco%20este%20problema%20en%20mi%20inmobiliaria%20y%20quisiera%20ver%20c%C3%B3mo%20Sifer%20puede%20ayudarme." target="_blank" class="btn-primary" style="background:rgba(255,255,255,0.1); border:1.5px solid rgba(255,255,255,0.2); color:var(--white);" onmouseover="this.style.background='var(--blue)';this.style.borderColor='var(--blue)'" onmouseout="this.style.background='rgba(255,255,255,0.1)';this.style.borderColor='rgba(255,255,255,0.2)'">Quiero resolver esto →</a>
   </div>
 </section>
 
@@ -1399,6 +1456,10 @@
           <span style="font-size:12px; color:var(--gray-text); font-family:'Poppins',sans-serif;">Conversación real simulada</span>
         </div>
       </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <p style="font-size:0.9rem; color:var(--gray-text); margin-bottom:1rem;">¿Querés un agente así en tu inmobiliaria?</p>
+      <a href="https://wa.me/5493415907951?text=Hola%2C%20vi%20la%20demo%20del%20agente%20de%20IA%20y%20me%20interesa%20implementarlo%20en%20mi%20inmobiliaria." target="_blank" class="btn-primary">Lo quiero para mi inmobiliaria →</a>
     </div>
   </div>
 </section>
@@ -1651,15 +1712,13 @@
         <div class="testi-stars">★★★★★</div>
         <p class="testi-quote">"El sistema nos ayudó muchísimo a mejorar la generación de leads y el seguimiento comercial. Hoy podemos responder más rápido, ordenar mejor las oportunidades y cerrar más operaciones de manera consistente. <strong>El cambio en la productividad del equipo fue inmediato.</strong>"</p>
         <div class="testi-author">
-          <div class="testi-avatar">DG</div>
+          <div class="testi-avatar testi-avatar-logo">
+            <img src="https://raw.githubusercontent.com/sifriabrian-pixel/SiferLanding/main/assets/logos/c21seven.jpeg" alt="Century 21 Seven">
+          </div>
           <div>
             <div class="testi-name">Diego</div>
             <div class="testi-role">Broker Manager, Paraguay</div>
           </div>
-        </div>
-        <!-- Logo Century 21 Seven -->
-        <div class="testi-logo">
-          <img src="https://raw.githubusercontent.com/sifriabrian-pixel/SiferLanding/main/assets/logos/c21seven.jpeg" alt="Century 21 Seven">
         </div>
       </div>
 
@@ -1668,15 +1727,13 @@
         <div class="testi-stars">★★★★★</div>
         <p class="testi-quote">"Lo que más valoramos fue la facilidad de implementación y el impacto inmediato en nuestra operación. <strong>Pudimos centralizar la gestión comercial y mejorar la comunicación con nuestros prospectos sin complicaciones técnicas.</strong>"</p>
         <div class="testi-author">
-          <div class="testi-avatar">MO</div>
+          <div class="testi-avatar testi-avatar-logo">
+            <img src="https://raw.githubusercontent.com/sifriabrian-pixel/SiferLanding/main/assets/logos/allegralogo.png" alt="Allegra Casa Inmobiliaria">
+          </div>
           <div>
             <div class="testi-name">Montserrat</div>
             <div class="testi-role">Directora, México</div>
           </div>
-        </div>
-        <!-- Logo Allegra -->
-        <div class="testi-logo">
-          <img src="https://raw.githubusercontent.com/sifriabrian-pixel/SiferLanding/main/assets/logos/allegralogo.png" alt="Allegra Casa Inmobiliaria">
         </div>
       </div>
 
@@ -1685,15 +1742,13 @@
         <div class="testi-stars">★★★★★</div>
         <p class="testi-quote">"El trabajo en marketing inmobiliario tuvo un impacto muy rápido en mis resultados. <strong>Logré duplicar la cantidad de leads calificados con los que conversaba semanalmente</strong> y eso me permitió generar muchas más ventas."</p>
         <div class="testi-author">
-          <div class="testi-avatar">JQ</div>
+          <div class="testi-avatar testi-avatar-logo">
+            <img src="https://raw.githubusercontent.com/sifriabrian-pixel/SiferLanding/main/assets/logos/remaxforum.png" alt="RE/MAX Forum">
+          </div>
           <div>
             <div class="testi-name">Joaquín</div>
             <div class="testi-role">Vendedor Senior Top 30, Argentina</div>
           </div>
-        </div>
-        <!-- Logo RE/MAX -->
-        <div class="testi-logo">
-          <img src="https://raw.githubusercontent.com/sifriabrian-pixel/SiferLanding/main/assets/logos/remaxforum.png" alt="RE/MAX Forum">
         </div>
       </div>
 
