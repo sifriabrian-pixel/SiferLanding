@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM + IA para Inmobiliarias | Sifer</title>
+<meta name="description" content="El CRM que convierte cada campaña de Sifer en un pipeline de ventas ordenado. Centraliza leads de Meta Ads, organiza tu equipo y cierra más sin perder ningún contacto.">
+<meta name="keywords" content="crm inmobiliario, gestión comercial inmobiliaria, herramientas para inmobiliarias, pipeline ventas inmobiliaria, crm con ia inmobiliaria latam, software gestion leads inmobiliarios">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0D1B2A; --navy-mid: #162235; --blue: #2762EA; --blue-light: #4A7EF5;
+    --white: #FFFFFF; --off-white: #F7F8FC; --gray-light: #EEF1F8;
+    --gray-text: #6B7A99; --text-dark: #0D1B2A; --border: rgba(13,27,42,0.08);
+    --shadow-md: 0 8px 32px rgba(13,27,42,0.1); --r-sm: 8px; --r-md: 12px; --r-lg: 20px; --r-xl: 32px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; color: var(--text-dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; line-height: 1.15; }
+
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(13,27,42,0.96); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); }
+  .nav-inner { max-width:1140px; margin:0 auto; padding:0 2rem; height:68px; display:flex; align-items:center; justify-content:space-between; }
+  .logo { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.4rem; color:var(--white); text-decoration:none; letter-spacing:-0.02em; }
+  .logo span { color:var(--blue-light); }
+  .nav-back { color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.85rem; font-weight:500; display:flex; align-items:center; gap:6px; transition:color 0.2s; }
+  .nav-back:hover { color:var(--white); }
+  .btn-nav { background:var(--blue); color:var(--white); padding:0.55rem 1.25rem; border-radius:6px; font-weight:600; font-size:0.85rem; text-decoration:none; transition:background 0.2s; }
+  .btn-nav:hover { background:var(--blue-light); }
+
+  section { padding:100px 2rem; }
+  .container { max-width:1140px; margin:0 auto; }
+  .section-eyebrow { font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1rem; }
+  .section-title { font-size:clamp(1.9rem,3.5vw,2.8rem); font-weight:800; letter-spacing:-0.025em; margin-bottom:1rem; }
+  .section-sub { font-size:1rem; color:var(--gray-text); max-width:560px; line-height:1.75; }
+
+  .hero { background:var(--navy); min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:120px 2rem 80px; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; top:-200px; right:-200px; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(39,98,234,0.15) 0%,transparent 70%); pointer-events:none; }
+  .hero-inner { max-width:1140px; margin:0 auto; width:100%; position:relative; z-index:1; }
+  .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(39,98,234,0.15); border:1px solid rgba(39,98,234,0.3); color:var(--blue-light); font-size:0.78rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:0.4rem 1rem; border-radius:100px; margin-bottom:2rem; }
+  .hero-dot { width:6px; height:6px; border-radius:50%; background:var(--blue-light); animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.7)} }
+  .hero h1 { font-size:clamp(2.4rem,5vw,3.8rem); font-weight:800; color:var(--white); margin-bottom:1.5rem; max-width:820px; letter-spacing:-0.03em; }
+  .hero h1 em { font-style:normal; color:var(--blue-light); }
+  .hero-sub { font-size:1.1rem; color:rgba(255,255,255,0.55); max-width:580px; margin-bottom:0.75rem; line-height:1.7; }
+  .hero-differentiator { font-size:0.88rem; color:rgba(255,255,255,0.35); margin-bottom:2.5rem; font-style:italic; }
+  .hero-icp { font-size:0.82rem; color:rgba(255,255,255,0.3); margin-bottom:2.5rem; }
+  .hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; margin-bottom:4rem; }
+  .btn-primary { background:var(--blue); color:var(--white); padding:0.9rem 2rem; border-radius:var(--r-sm); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.95rem; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:background 0.2s,transform 0.15s; }
+  .btn-primary:hover { background:var(--blue-light); transform:translateY(-1px); }
+  .btn-ghost { color:rgba(255,255,255,0.65); padding:0.9rem 1.5rem; border-radius:var(--r-sm); font-family:'Montserrat',sans-serif; font-weight:600; font-size:0.9rem; text-decoration:none; display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(255,255,255,0.12); transition:color 0.2s; }
+  .btn-ghost:hover { color:var(--white); }
+  .hero-stats { display:flex; gap:3rem; flex-wrap:wrap; }
+  .hero-stat-num { font-family:'Montserrat',sans-serif; font-size:2rem; font-weight:800; color:var(--white); line-height:1; letter-spacing:-0.03em; }
+  .hero-stat-num span { color:var(--blue-light); }
+  .hero-stat-label { font-size:0.78rem; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.08em; margin-top:4px; }
+
+  /* DIFFERENTIATOR BLOCK */
+  .diff-block { background:var(--navy); border-top:1px solid rgba(255,255,255,0.06); }
+  .diff-inner { background:rgba(39,98,234,0.08); border:1px solid rgba(39,98,234,0.2); border-radius:var(--r-xl); padding:2.5rem 3rem; display:flex; align-items:flex-start; gap:2rem; }
+  .diff-icon { font-size:2rem; flex-shrink:0; }
+  .diff-text h3 { font-size:1.1rem; font-weight:800; color:var(--white); margin-bottom:0.5rem; }
+  .diff-text p { font-size:0.9rem; color:rgba(255,255,255,0.55); line-height:1.75; }
+  .diff-text strong { color:var(--blue-light); }
+
+  /* FEATURES */
+  .features { background:var(--off-white); }
+  .features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3.5rem; }
+  .feat-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r-lg); padding:2rem; transition:box-shadow 0.2s,transform 0.2s; }
+  .feat-card:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
+  .feat-icon { width:44px; height:44px; border-radius:var(--r-sm); background:rgba(39,98,234,0.08); display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:1rem; }
+  .feat-card h3 { font-size:0.95rem; font-weight:700; margin-bottom:0.5rem; }
+  .feat-card p { font-size:0.85rem; color:var(--gray-text); line-height:1.7; }
+
+  /* KANBAN MOCKUP */
+  .kanban-section { background:var(--white); }
+  .kanban-mock { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:3rem; overflow-x:auto; padding-bottom:0.5rem; }
+  .kanban-col { background:var(--off-white); border-radius:var(--r-md); padding:1rem; min-width:180px; }
+  .kanban-col-header { font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:var(--gray-text); padding-bottom:0.75rem; border-bottom:2px solid var(--border); margin-bottom:0.75rem; display:flex; justify-content:space-between; align-items:center; }
+  .kanban-count { background:var(--gray-light); border-radius:10px; padding:2px 8px; font-size:0.72rem; color:var(--gray-text); }
+  .kanban-col.active .kanban-col-header { color:var(--blue); border-bottom-color:var(--blue); }
+  .kanban-col.active .kanban-count { background:rgba(39,98,234,0.1); color:var(--blue); }
+  .kanban-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r-sm); padding:0.75rem; margin-bottom:0.5rem; }
+  .kanban-card-name { font-size:0.82rem; font-weight:600; color:var(--text-dark); margin-bottom:3px; }
+  .kanban-card-meta { font-size:0.75rem; color:var(--gray-text); }
+  .kanban-card-tag { display:inline-block; font-size:0.68rem; font-weight:600; padding:2px 6px; border-radius:4px; margin-top:6px; }
+  .tag-new { background:rgba(39,98,234,0.1); color:var(--blue); }
+  .tag-hot { background:rgba(239,68,68,0.1); color:#EF4444; }
+  .tag-warn { background:rgba(245,158,11,0.1); color:#F59E0B; }
+
+  /* FOR WHO */
+  .for-who { background:var(--navy); }
+  .for-who-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3.5rem; }
+  .persona-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:var(--r-lg); padding:2rem; }
+  .persona-icon { font-size:1.5rem; margin-bottom:0.75rem; }
+  .persona-card h3 { font-size:1rem; font-weight:700; color:var(--white); margin-bottom:0.5rem; }
+  .persona-card p { font-size:0.87rem; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:1rem; }
+  .persona-list { list-style:none; display:flex; flex-direction:column; gap:0.5rem; }
+  .persona-list li { font-size:0.85rem; color:rgba(255,255,255,0.6); display:flex; align-items:flex-start; gap:8px; }
+  .persona-list li::before { content:'→'; color:var(--blue-light); flex-shrink:0; }
+
+  /* CASO */
+  .case { background:var(--off-white); }
+  .case-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+  .case-label { font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1rem; }
+  .case-title { font-family:'Montserrat',sans-serif; font-size:1.6rem; font-weight:800; letter-spacing:-0.02em; margin-bottom:1rem; line-height:1.2; }
+  .case-body { font-size:0.9rem; color:var(--gray-text); line-height:1.8; margin-bottom:1.5rem; }
+  .case-metrics { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+  .metric { background:var(--white); border:1px solid var(--border); border-radius:var(--r-md); padding:1.25rem; }
+  .metric-num { font-family:'Montserrat',sans-serif; font-size:1.75rem; font-weight:900; color:var(--text-dark); letter-spacing:-0.03em; line-height:1; }
+  .metric-num span { color:var(--blue); }
+  .metric-label { font-size:0.78rem; color:var(--gray-text); margin-top:4px; }
+  .case-quote { background:var(--navy); border-left:3px solid var(--blue); border-radius:0 var(--r-md) var(--r-md) 0; padding:1.75rem; }
+  .case-quote-text { font-size:0.95rem; color:rgba(255,255,255,0.7); line-height:1.7; font-style:italic; margin-bottom:1rem; }
+  .case-quote-author strong { display:block; color:var(--white); font-family:'Montserrat',sans-serif; font-size:0.88rem; font-weight:700; }
+  .case-quote-author span { font-size:0.78rem; color:rgba(255,255,255,0.4); }
+
+  .cta-section { background:var(--navy); text-align:center; }
+  .btn-primary-white { background:var(--white); color:var(--navy); padding:0.9rem 2rem; border-radius:var(--r-sm); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.95rem; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:opacity 0.2s; }
+  .btn-primary-white:hover { opacity:0.9; }
+
+  .ecosystem { background:var(--white); padding:60px 2rem; border-top:1px solid var(--border); }
+  .ecosystem-inner { max-width:720px; margin:0 auto; text-align:center; }
+  .ecosystem p { font-size:0.9rem; color:var(--gray-text); line-height:1.75; }
+  .ecosystem a { color:var(--blue); text-decoration:none; font-weight:600; }
+  .ecosystem a:hover { text-decoration:underline; }
+
+  footer { background:#08111C; padding:2.5rem 2rem; border-top:1px solid rgba(255,255,255,0.05); }
+  .footer-inner { max-width:1140px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+  .footer-logo { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.1rem; color:var(--white); text-decoration:none; }
+  .footer-logo span { color:var(--blue-light); }
+  .footer-copy { font-size:0.78rem; color:rgba(255,255,255,0.25); }
+
+  @media (max-width:900px) {
+    .features-grid { grid-template-columns:1fr 1fr; }
+    .kanban-mock { grid-template-columns:repeat(2,1fr); }
+    .for-who-grid { grid-template-columns:1fr; }
+    .case-inner { grid-template-columns:1fr; gap:2.5rem; }
+    .diff-inner { flex-direction:column; gap:1rem; padding:1.75rem; }
+  }
+  @media (max-width:600px) {
+    section { padding:64px 1.25rem; }
+    .hero { padding:96px 1.25rem 60px; }
+    .features-grid { grid-template-columns:1fr; }
+    .kanban-mock { grid-template-columns:repeat(2,1fr); }
+    .hero-ctas { flex-direction:column; align-items:stretch; }
+    .case-metrics { grid-template-columns:1fr; }
+    .hero-stats { gap:1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Si<span>fer</span></a>
+    <a href="/" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Volver al inicio
+    </a>
+    <a href="https://wa.me/5493415907951?text=Hola%2C%20quiero%20conocer%20el%20CRM%20de%20Sifer%20para%20mi%20inmobiliaria." target="_blank" class="btn-nav">Ver el CRM en acción</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="hero-dot"></div>CRM + IA para Inmobiliarias</div>
+    <h1>Ningún lead se pierde.<br><em>Ninguno.</em></h1>
+    <p class="hero-sub">El CRM que convierte cada campaña que corre Sifer en un pipeline de ventas ordenado — sin trabajo manual, sin leads perdidos, con visibilidad total de tu equipo comercial.</p>
+    <p class="hero-differentiator">No es un CRM genérico. Es la capa de gestión + inteligencia construida específicamente para inmobiliarias que usan Sifer.</p>
+    <p class="hero-icp">Para dueños, gerentes y brokers-owners que hoy pierden leads en planillas, WhatsApp desordenado o porque nadie los sigue a tiempo.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/5493415907951?text=Hola%2C%20quiero%20conocer%20el%20CRM%20de%20Sifer%20para%20mi%20inmobiliaria." target="_blank" class="btn-primary">Ver el CRM en acción →</a>
+      <a href="#funcionalidades" class="btn-ghost">Ver funcionalidades</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">0</div>
+        <div class="hero-stat-label">Leads cargados a mano</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">100<span>%</span></div>
+        <div class="hero-stat-label">Visibilidad del equipo comercial</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">24<span>h</span></div>
+        <div class="hero-stat-label">Alerta de leads sin actividad</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATOR -->
+<section class="diff-block" style="padding:60px 2rem;">
+  <div class="container">
+    <div class="diff-inner">
+      <div class="diff-icon">⚡</div>
+      <div class="diff-text">
+        <h3>El diferenciador no es la interfaz. Es la inteligencia.</h3>
+        <p>No vendemos un CRM. Lo que ofrecemos es un <strong>pipeline de ventas conectado directamente a tus campañas de Meta Ads</strong>, con alertas automáticas, asignación de leads por asesor y visibilidad en tiempo real — todo sin que nadie tenga que cargar nada a mano. La tecnología detrás combina automatización con Make y base de datos con Supabase para que el sistema opere solo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="funcionalidades">
+  <div class="container">
+    <div class="section-eyebrow">Funcionalidades</div>
+    <h2 class="section-title">Todo lo que necesita tu operación comercial</h2>
+    <p class="section-sub">Sin Excel. Sin WhatsApp desordenado. Sin leads que se caen entre las grietas.</p>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">🔌</div>
+        <h3>Leads automáticos desde Meta Ads</h3>
+        <p>Cada lead que genera tu campaña entra directo al CRM. Sin copiar y pegar, sin carga manual, sin demora.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📋</div>
+        <h3>Pipeline Kanban personalizable</h3>
+        <p>Tablero visual con etapas definidas por vos — Nuevo, Contactado, En proceso, Visita agendada, Cerrado. Arrastrás y soltás.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">👥</div>
+        <h3>Asignación por asesor</h3>
+        <p>El gerente ve el pipeline completo y asigna cada lead a un asesor específico. Cada asesor entra con su usuario y ve solo lo suyo.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔔</div>
+        <h3>Alertas de leads fríos</h3>
+        <p>Si un lead lleva más de una semana sin actividad, el sistema lo marca automáticamente y avisa. Ninguno se enfría sin que lo sepas.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📧</div>
+        <h3>Notificación instantánea al asesor</h3>
+        <p>En cuanto se le asigna un lead, el asesor recibe un email automático con toda la información. Sin tener que preguntar.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">💬</div>
+        <h3>WhatsApp directo desde la ficha</h3>
+        <p>Un clic en la ficha del lead abre WhatsApp para contactarlo. Sin copiar números, sin salir del sistema.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📊</div>
+        <h3>Dashboard de métricas</h3>
+        <p>Total de leads, tasa de conversión, leads sin contactar, seguimientos vencidos. Todo en una pantalla, en tiempo real.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔒</div>
+        <h3>Datos seguros y separados</h3>
+        <p>Cada inmobiliaria ve únicamente sus propios leads. Los datos de tu cartera son solo tuyos, completamente aislados.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">⏰</div>
+        <h3>Seguimientos con fecha de vencimiento</h3>
+        <p>Programás el próximo contacto de cada lead. El sistema avisa cuando vence. Tu equipo siempre sabe a quién tiene que llamar hoy.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="https://wa.me/5493415907951?text=Hola%2C%20quiero%20conocer%20el%20CRM%20de%20Sifer%20para%20mi%20inmobiliaria." target="_blank" class="btn-primary">Ver el CRM en acción →</a>
+    </div>
+  </div>
+</section>
+
+<!-- KANBAN MOCKUP -->
+<section class="kanban-section">
+  <div class="container">
+    <div class="section-eyebrow">Vista del sistema</div>
+    <h2 class="section-title">Así se ve tu pipeline</h2>
+    <p class="section-sub">Cada lead en su etapa, con su asesor asignado, visible en tiempo real.</p>
+    <div class="kanban-mock">
+      <div class="kanban-col">
+        <div class="kanban-col-header">Nuevo <span class="kanban-count">4</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Martín G.</div><div class="kanban-card-meta">Depto 2 amb · Palermo</div><span class="kanban-card-tag tag-new">Sin contactar</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Laura S.</div><div class="kanban-card-meta">Casa · Belgrano</div><span class="kanban-card-tag tag-new">Sin contactar</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Roberto M.</div><div class="kanban-card-meta">Inversión · CDMX</div><span class="kanban-card-tag tag-warn">⚠ Vencido</span></div>
+      </div>
+      <div class="kanban-col active">
+        <div class="kanban-col-header">En proceso <span class="kanban-count">6</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Ana P.</div><div class="kanban-card-meta">PH · Condesa</div><span class="kanban-card-tag tag-hot">🔥 Caliente</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Carlos R.</div><div class="kanban-card-meta">3 amb · Polanco</div><span class="kanban-card-tag tag-new">Seguimiento hoy</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Sofía L.</div><div class="kanban-card-meta">Estudio · Roma Norte</div></div>
+      </div>
+      <div class="kanban-col">
+        <div class="kanban-col-header">Visita agendada <span class="kanban-count">3</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Diego V.</div><div class="kanban-card-meta">Sáb 10am · Condesa</div><span class="kanban-card-tag tag-hot">🗓 Confirmado</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Valeria N.</div><div class="kanban-card-meta">Vier 5pm · Polanco</div></div>
+      </div>
+      <div class="kanban-col">
+        <div class="kanban-col-header">Cerrado <span class="kanban-count">8</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Hernán F.</div><div class="kanban-card-meta">Depto · Condesa ✓</div><span class="kanban-card-tag" style="background:rgba(34,197,94,0.1);color:#16A34A;">Operación</span></div>
+        <div class="kanban-card"><div class="kanban-card-name">Patricia M.</div><div class="kanban-card-meta">Casa · Lomas ✓</div><span class="kanban-card-tag" style="background:rgba(34,197,94,0.1);color:#16A34A;">Operación</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="for-who">
+  <div class="container">
+    <div class="section-eyebrow" style="color:var(--blue-light);">¿Para quién es?</div>
+    <h2 class="section-title" style="color:var(--white);">Dos personas, dos vistas distintas</h2>
+    <div class="for-who-grid">
+      <div class="persona-card">
+        <div class="persona-icon">👔</div>
+        <h3>El dueño / gerente</h3>
+        <p>Visibilidad total de la operación comercial sin depender de que nadie le cuente cómo van las cosas.</p>
+        <ul class="persona-list">
+          <li>Ve el pipeline completo de toda la inmobiliaria</li>
+          <li>Asigna cada lead al asesor correcto</li>
+          <li>Detecta leads fríos antes de que se pierdan</li>
+          <li>Métricas reales de conversión de su equipo</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🤝</div>
+        <h3>El asesor comercial</h3>
+        <p>Una lista clara de a quién tiene que llamar hoy, con toda la información en un solo lugar.</p>
+        <ul class="persona-list">
+          <li>Ve solo los leads que tiene asignados</li>
+          <li>Recibe alerta instantánea cuando le asignan uno nuevo</li>
+          <li>Contacta por WhatsApp con un clic desde la ficha</li>
+          <li>Sabe exactamente cuál es su próximo seguimiento</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASO -->
+<section class="case">
+  <div class="container">
+    <div class="case-inner">
+      <div>
+        <div class="case-label">Caso de estudio</div>
+        <h2 class="case-title">Cómo Century 21 Seven organizó su pipeline y dejó de perder leads</h2>
+        <p class="case-body">Century 21 Seven en Paraguay tenía un problema común: los leads de sus campañas llegaban a WhatsApp y se perdían en la conversación. No había forma de saber cuántos leads habían entrado, quién estaba en seguimiento y cuántos se habían cerrado.</p>
+        <p class="case-body">Con el CRM de Sifer, cada lead entra automáticamente al pipeline, se asigna al asesor correcto y el equipo tiene visibilidad total del proceso comercial por primera vez.</p>
+        <div class="case-metrics">
+          <div class="metric"><div class="metric-num">0</div><div class="metric-label">Leads perdidos por falta de seguimiento</div></div>
+          <div class="metric"><div class="metric-num">100<span>%</span></div><div class="metric-label">Leads de campañas en el pipeline</div></div>
+          <div class="metric"><div class="metric-num">+<span>40%</span></div><div class="metric-label">Tasa de contacto en menos de 5 min</div></div>
+          <div class="metric"><div class="metric-num">1</div><div class="metric-label">Solo lugar para gestionar todo el equipo</div></div>
+        </div>
+      </div>
+      <div class="case-quote">
+        <p class="case-quote-text">"El sistema nos ayudó muchísimo a mejorar la generación de leads y el seguimiento comercial. Hoy podemos responder más rápido, ordenar mejor las oportunidades y cerrar más operaciones de manera consistente. El cambio en la productividad del equipo fue inmediato."</p>
+        <div class="case-quote-author">
+          <strong>Diego</strong>
+          <span>Broker Manager — Century 21 Seven, Paraguay</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="section-eyebrow" style="color:var(--blue-light); text-align:center;">Empezá hoy</div>
+    <h2 style="color:var(--white); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:900; letter-spacing:-0.03em; margin-bottom:1rem;">¿Cuántos leads perdiste<br>la semana pasada sin saberlo?</h2>
+    <p style="color:rgba(255,255,255,0.5); margin-bottom:2rem;">30 minutos de llamada. Te mostramos el CRM funcionando con datos reales.</p>
+    <a href="https://wa.me/5493415907951?text=Hola%2C%20quiero%20conocer%20el%20CRM%20de%20Sifer%20para%20mi%20inmobiliaria." target="_blank" class="btn-primary-white">Ver el CRM en acción →</a>
+  </div>
+</section>
+
+<section class="ecosystem">
+  <div class="ecosystem-inner">
+    <p>El CRM es la capa de gestión del <strong>sistema de crecimiento comercial de Sifer para inmobiliarias</strong> — que también incluye captación de leads con ADS, calificación automática por IA y captación de asesores. <a href="/">Conocé el ecosistema completo →</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">Si<span>fer</span></a>
+    <span class="footer-copy">© 2025 Sifer — Tecnología Comercial para Inmobiliarias</span>
+  </div>
+</footer>
+
+</body>
+</html>
