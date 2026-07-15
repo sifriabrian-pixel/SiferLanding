@@ -1555,116 +1555,157 @@
       <p class="section-sub" style="margin:0 auto; text-align:center;">Sin intervención humana. Sin demoras. Las 24 horas.</p>
     </div>
 
-    <div style="display:flex; justify-content:center;">
-      <div style="width:100%; max-width:380px;">
+    <!-- Demo layout: chat izquierda, info derecha -->
+    <div style="display:grid; grid-template-columns:380px 1fr; gap:3rem; align-items:start; max-width:880px; margin:0 auto;">
 
-        <div style="background:#ECE5DD; border-radius:20px; overflow:hidden; box-shadow:0 8px 40px rgba(13,27,42,0.14);">
+      <!-- WIDGET WHATSAPP -->
+      <div>
+        <div style="background:#ECE5DD; border-radius:22px; overflow:hidden; box-shadow:0 16px 56px rgba(13,27,42,0.18);">
 
+          <!-- Header WA -->
           <div style="background:#075E54; padding:13px 16px; display:flex; align-items:center; gap:10px;">
-            <div style="width:38px; height:38px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:800; color:#fff; flex-shrink:0; font-family:'Montserrat',sans-serif;">S</div>
-            <div>
-              <p style="margin:0; font-size:14px; font-weight:600; color:#fff; font-family:'Montserrat',sans-serif;">Sifer — Asistente IA</p>
-              <p style="margin:0; font-size:11px; color:rgba(255,255,255,0.7); font-family:'Poppins',sans-serif;" id="wa-status">en línea</p>
+            <div style="width:40px; height:40px; border-radius:50%; background:#128C7E; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:800; color:#fff; font-size:14px; letter-spacing:-0.5px;">SI</div>
+            <div style="flex:1;">
+              <p style="margin:0; font-size:14px; font-weight:600; color:#fff; line-height:1.2; font-family:'Montserrat',sans-serif;">Sifer Inmobiliaria</p>
+              <p style="margin:0; font-size:11px; color:rgba(255,255,255,0.65); font-family:'Poppins',sans-serif;" id="wa-status">Valeria · Asistente IA</p>
             </div>
-            <div style="margin-left:auto; display:flex; gap:14px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 9.39a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.72 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91"/></svg>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-            </div>
-          </div>
-
-          <div id="wa-chat" style="padding:12px; min-height:380px; max-height:480px; overflow-y:auto; display:flex; flex-direction:column; gap:8px; background:#ECE5DD;">
-            <div style="text-align:center; margin:8px 0;">
-              <span style="font-size:11px; background:rgba(0,0,0,0.1); color:#555; padding:4px 12px; border-radius:10px; font-family:'Poppins',sans-serif;">Hoy</span>
+            <div style="display:flex; gap:14px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 9.39a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.72 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
             </div>
           </div>
 
-          <div style="background:#F0F0F0; padding:10px 12px; display:flex; align-items:center; gap:8px; border-top:0.5px solid rgba(0,0,0,0.08);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            <div style="flex:1; background:#fff; border-radius:20px; padding:8px 14px; font-size:13px; color:#aaa; font-family:'Poppins',sans-serif;">Mensaje</div>
+          <!-- Fecha -->
+          <div style="text-align:center; padding:10px 12px 4px;">
+            <span style="font-size:11px; background:rgba(0,0,0,0.12); color:#555; padding:3px 12px; border-radius:10px; font-family:'Poppins',sans-serif;">Hoy</span>
+          </div>
+
+          <!-- Chat body -->
+          <div id="wa-chat" style="padding:8px 12px 12px; min-height:440px; max-height:520px; overflow-y:auto; display:flex; flex-direction:column; gap:7px; background:#ECE5DD; scroll-behavior:smooth;"></div>
+
+          <!-- Input bar -->
+          <div style="background:#F0F0F0; padding:9px 12px; display:flex; align-items:center; gap:8px; border-top:0.5px solid rgba(0,0,0,0.08);">
+            <div style="flex:1; background:#fff; border-radius:20px; padding:8px 14px; font-size:13px; color:#bbb; font-family:'Poppins',sans-serif;">Mensaje</div>
             <div style="width:36px; height:36px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
             </div>
           </div>
         </div>
 
+        <!-- Controles -->
         <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-top:1.25rem;">
-          <button id="wa-replay" onclick="siferStartDemo()" style="font-size:13px; padding:8px 20px; border-radius:20px; cursor:pointer; background:var(--white); border:1.5px solid var(--border); color:var(--text-dark); font-family:'Poppins',sans-serif; display:flex; align-items:center; gap:6px; transition:border-color 0.2s;">
+          <button onclick="siferStartDemo()" style="font-size:13px; padding:8px 20px; border-radius:20px; cursor:pointer; background:var(--white); border:1.5px solid var(--border); color:var(--text-dark); font-family:'Poppins',sans-serif; display:flex; align-items:center; gap:6px; transition:border-color 0.2s;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
             Repetir demo
           </button>
           <span style="font-size:12px; color:var(--gray-text); font-family:'Poppins',sans-serif;">Conversación real simulada</span>
         </div>
       </div>
+
+      <!-- PANEL DERECHO -->
+      <div style="display:flex; flex-direction:column; gap:1.25rem; padding-top:0.5rem;">
+
+        <div style="background:#fff; border:1px solid var(--border); border-radius:20px; padding:1.5rem; transition:box-shadow 0.2s;">
+          <div style="width:40px; height:40px; border-radius:10px; background:rgba(39,98,234,0.08); display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4 style="font-family:'Montserrat',sans-serif; font-size:0.9rem; font-weight:700; color:var(--text-dark); margin-bottom:0.35rem;">Respuesta en <span style="color:var(--blue);">menos de 30 segundos</span></h4>
+          <p style="font-size:0.82rem; color:var(--gray-text); line-height:1.65;">El agente toma cada consulta entrante al instante. Sin importar si es domingo a la noche o un feriado.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--border); border-radius:20px; padding:1.5rem; transition:box-shadow 0.2s;">
+          <div style="width:40px; height:40px; border-radius:10px; background:rgba(39,98,234,0.08); display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <h4 style="font-family:'Montserrat',sans-serif; font-size:0.9rem; font-weight:700; color:var(--text-dark); margin-bottom:0.35rem;"><span style="color:var(--blue);">Califica y agenda</span> sin asesor</h4>
+          <p style="font-size:0.82rem; color:var(--gray-text); line-height:1.65;">Entiende qué busca el lead, comparte opciones relevantes y deja la visita agendada antes de que tu equipo lo vea.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--border); border-radius:20px; padding:1.5rem; transition:box-shadow 0.2s;">
+          <div style="width:40px; height:40px; border-radius:10px; background:rgba(39,98,234,0.08); display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h4 style="font-family:'Montserrat',sans-serif; font-size:0.9rem; font-weight:700; color:var(--text-dark); margin-bottom:0.35rem;">Tu asesor entra <span style="color:var(--blue);">cuando ya hay interés</span></h4>
+          <p style="font-size:0.82rem; color:var(--gray-text); line-height:1.65;">El lead llega calificado, con contexto completo y visita confirmada. Cero tiempo perdido en curiosos.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;">
+      <p style="font-size:0.9rem; color:var(--gray-text); margin-bottom:1rem;">¿Querés un agente así en tu inmobiliaria?</p>
+      <a href="https://wa.me/5493415907951?text=Hola%2C%20vi%20la%20demo%20del%20agente%20de%20IA%20y%20me%20interesa%20implementarlo%20en%20mi%20inmobiliaria." target="_blank" class="btn-primary">Lo quiero para mi inmobiliaria →</a>
     </div>
   </div>
 </section>
 
+<style>
+@keyframes siferFadeUp { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+@keyframes siferBlink { 0%,80%,100%{opacity:.2;transform:scale(.75)} 40%{opacity:1;transform:scale(1)} }
+.sifer-dot { width:7px; height:7px; border-radius:50%; background:#aaa; display:inline-block; animation:siferBlink 1.2s infinite; }
+
+/* Responsive demo layout */
+@media (max-width: 860px) {
+  #agente .container > div:nth-child(2) {
+    grid-template-columns: 1fr !important;
+  }
+  #agente .container > div:nth-child(2) > div:last-child {
+    display: none !important;
+  }
+}
+</style>
+
 <script>
 (function() {
+
   var msgs = [
-    { from:'lead', text:'Hola, vi el depto en Condesa que publicaron. ¿Sigue disponible?', delay:900 },
-    { from:'agent', text:'¡Hola! Soy el asistente de *Allegra Inmobiliaria* 👋
-
-¡Sí, está disponible! Te comparto la ficha:
-
-🏠 *Depto en Condesa, CDMX*
-📐 72 m² — 2 recámaras, 2 baños
-🏢 Piso 4 con balcón
-🚗 1 cajón de estacionamiento
-✅ Entrega inmediata
-
-¿Tenés alguna pregunta?', delay:1500 },
-    { from:'lead', text:'¿Cuánto cuesta?', delay:1000 },
-    { from:'agent', text:'El precio es *$3,850,000 MXN* 💰
-
-Incluye el cajón y mantenimiento del edificio. El condo tiene roof garden y gimnasio.', delay:1300 },
-    { from:'lead', text:'¿Acepta crédito hipotecario?', delay:1000 },
-    { from:'agent', text:'¡Sí! Trabaja con BBVA, Santander, Banorte e Infonavit 🏦
-
-Enganche mínimo del 10%. Te puedo conectar con un asesor financiero sin costo para simular tu crédito.', delay:1400 },
-    { from:'lead', text:'Me interesa verlo.', delay:900 },
-    { from:'agent', text:'¡Perfecto! 🙌 Tenemos visitas disponibles:
-
-📅 *Jueves — 11am o 5pm*
-📅 *Sábado — 10am o 12pm*
-
-¿Cuál te viene mejor? Te confirmo el asesor y la dirección exacta.', delay:1500 },
-    { from:'tag', text:'✅ Lead calificado — visita agendada', delay:600 },
+    { from:'lead', text:'Hola! Vi en Zonaprop un depto de 2 ambientes en Palermo. ¿Todavía está disponible?', delay:900 },
+    { from:'agent', text:'Hola! Soy Valeria, asistente de *Sifer Inmobiliaria* 🏠\n\nSí, está disponible. ¿Me decís cuál publicación viste? Así te confirmo los datos exactos y te cuento si hay otras opciones similares en la zona.', delay:1400 },
+    { from:'lead', text:'Creo que era en Godoy Cruz al 1800. Precio rondaba los USD 95.000', delay:900 },
+    { from:'agent', text:'¡Exacto! Te mando la ficha:\n\n📍 *Godoy Cruz 1847 · Palermo, CABA*\n📐 52 m² — 2 ambientes luminosos\n🏢 Piso 4° con balcón al norte\n🚗 Cochera opcional\n✅ Entrega inmediata · *USD 95.000*\n\nEdificio con portero, sum y terraza. ¿La buscás para vivir o como inversión?', delay:1600 },
+    { from:'lead', text:'Para vivir, somos dos. Capaz necesitamos un poco más de espacio en realidad', delay:1000 },
+    { from:'agent', text:'Entendido 🙌 Para dos personas con más espacio tengo dos opciones en Palermo:\n\n📍 *Thames 2340* — 58 m², 2 amb. grandes · USD 108.000\n📍 *Cabrera 1560* — 64 m², 3 amb. con balcón · USD 119.000\n\nAmbas en muy buen estado. ¿Querés más info de alguna?', delay:1700 },
+    { from:'lead', text:'La de 3 ambientes en Cabrera suena bien. ¿Puedo verla esta semana?', delay:900 },
+    { from:'agent', text:'¡Perfecto! Para Cabrera 1560 tenemos:\n\n📅 *Miércoles — 18hs*\n📅 *Jueves — 11hs o 17hs*\n📅 *Sábado — 10hs*\n\n¿Cuál te queda mejor? Te confirmo con el asesor al toque.', delay:1500 },
+    { from:'lead', text:'El jueves a las 17 estaría perfecto', delay:700 },
+    { from:'agent', text:'✅ ¡Quedó agendada la visita para el *jueves a las 17hs* en Cabrera 1560!\n\nTe escribo el miércoles con la dirección exacta y los datos del asesor. ¿Alguna consulta antes de la visita?', delay:1500 },
+    { from:'tag', text:'✅ Lead calificado · Preferencia detectada · Visita agendada en 6 minutos', delay:600 }
   ];
 
   var tids = [];
-
   function clearAll() { tids.forEach(clearTimeout); tids = []; }
 
   function fmt(t) {
-    return t.replace(/\*(.*?)\*/g,'<strong>$1</strong>').replace(/
-/g,'<br>');
+    return t.replace(/\*(.*?)\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
   }
 
   function makeBubble(msg) {
     var wrap = document.createElement('div');
     if (msg.from === 'tag') {
-      wrap.style.cssText = 'display:flex;justify-content:center;';
-      wrap.innerHTML = '<div style="font-size:11px;font-weight:600;color:#075E54;background:rgba(37,211,102,0.18);border:0.5px solid rgba(37,211,102,0.4);border-radius:12px;padding:6px 16px;font-family:Poppins,sans-serif;">' + msg.text + '</div>';
+      wrap.style.cssText = 'display:flex;justify-content:center;animation:siferFadeUp .3s ease;';
+      wrap.innerHTML = '<div style="font-size:11px;font-weight:600;color:#075E54;background:rgba(37,211,102,0.15);border:0.5px solid rgba(37,211,102,0.4);border-radius:12px;padding:6px 16px;text-align:center;font-family:Poppins,sans-serif;">' + msg.text + '</div>';
       return wrap;
     }
     var isAgent = msg.from === 'agent';
-    wrap.style.cssText = 'display:flex;justify-content:' + (isAgent ? 'flex-start' : 'flex-end') + ';';
+    wrap.style.cssText = 'display:flex;justify-content:' + (isAgent ? 'flex-start' : 'flex-end') + ';animation:siferFadeUp .3s ease;';
     var bg = isAgent ? '#fff' : '#DCF8C6';
     var br = isAgent ? '2px 14px 14px 14px' : '14px 2px 14px 14px';
-    wrap.innerHTML = '<div style="max-width:83%;background:' + bg + ';border-radius:' + br + ';padding:9px 12px;font-size:13px;line-height:1.55;color:#111;font-family:Poppins,sans-serif;">' +
+    wrap.innerHTML = '<div style="max-width:84%;background:' + bg + ';border-radius:' + br + ';padding:9px 12px;font-size:13px;line-height:1.55;color:#111;font-family:Poppins,sans-serif;">' +
       fmt(msg.text) +
-      '<div style="font-size:10px;color:#999;text-align:right;margin-top:4px;">' + (isAgent ? '<span style="color:#4FC3F7;">✓✓</span> ' : '') + 'ahora</div>' +
-      '</div>';
+      '<div style="font-size:10px;color:#aaa;text-align:right;margin-top:3px;display:flex;justify-content:flex-end;align-items:center;gap:2px;">' +
+      '<span>ahora</span>' + (isAgent ? '<span style="color:#4A90D9;">✓✓</span>' : '') +
+      '</div></div>';
     return wrap;
   }
 
   function makeTyping() {
     var wrap = document.createElement('div');
     wrap.id = 'sifer-typing';
-    wrap.style.cssText = 'display:flex;justify-content:flex-start;';
-    wrap.innerHTML = '<div style="background:#fff;border-radius:2px 14px 14px 14px;padding:10px 14px;display:flex;gap:5px;align-items:center;">' +
-      '<span class="sifer-dot"></span><span class="sifer-dot" style="animation-delay:0.2s"></span><span class="sifer-dot" style="animation-delay:0.4s"></span>' +
+    wrap.style.cssText = 'display:flex;justify-content:flex-start;animation:siferFadeUp .2s ease;';
+    wrap.innerHTML = '<div style="background:#fff;border-radius:2px 14px 14px 14px;padding:10px 14px;display:flex;gap:4px;align-items:center;">' +
+      '<span class="sifer-dot"></span>' +
+      '<span class="sifer-dot" style="animation-delay:.2s"></span>' +
+      '<span class="sifer-dot" style="animation-delay:.4s"></span>' +
       '</div>';
     return wrap;
   }
@@ -1673,8 +1714,8 @@ Enganche mínimo del 10%. Te puedo conectar con un asesor financiero sin costo p
     clearAll();
     var body = document.getElementById('wa-chat');
     var status = document.getElementById('wa-status');
-    body.innerHTML = '<div style="text-align:center;margin:8px 0;"><span style="font-size:11px;background:rgba(0,0,0,0.1);color:#555;padding:4px 12px;border-radius:10px;font-family:Poppins,sans-serif;">Hoy</span></div>';
-    status.textContent = 'en línea';
+    body.innerHTML = '';
+    status.textContent = 'Valeria · Asistente IA';
 
     var elapsed = 600;
     msgs.forEach(function(msg) {
@@ -1683,9 +1724,11 @@ Enganche mínimo del 10%. Te puedo conectar con un asesor financiero sin costo p
         (function(e) {
           var t = setTimeout(function() {
             status.textContent = 'escribiendo...';
+            var ex = document.getElementById('sifer-typing');
+            if (ex) ex.remove();
             body.appendChild(makeTyping());
             body.scrollTop = body.scrollHeight;
-          }, e - Math.min(msg.delay * 0.55, 800));
+          }, e - Math.min(msg.delay * 0.55, 900));
           tids.push(t);
         })(elapsed);
       }
@@ -1693,35 +1736,26 @@ Enganche mínimo del 10%. Te puedo conectar con un asesor financiero sin costo p
         var t = setTimeout(function() {
           var typing = document.getElementById('sifer-typing');
           if (typing) typing.remove();
-          if (m.from === 'agent') status.textContent = 'en línea';
+          if (m.from === 'agent') status.textContent = 'Valeria · Asistente IA';
           body.appendChild(makeBubble(m));
           body.scrollTop = body.scrollHeight;
         }, e);
         tids.push(t);
       })(elapsed, msg);
-      elapsed += 250;
+      elapsed += 280;
     });
   };
 
-  if (!document.getElementById('sifer-dot-style')) {
-    var s = document.createElement('style');
-    s.id = 'sifer-dot-style';
-    s.textContent = '@keyframes siferBlink{0%,80%,100%{opacity:.2;transform:scale(.75)}40%{opacity:1;transform:scale(1)}}.sifer-dot{width:7px;height:7px;border-radius:50%;background:#aaa;display:inline-block;animation:siferBlink 1.2s infinite;}';
-    document.head.appendChild(s);
-  }
-
+  // Autoplay al entrar en viewport
   function initDemo() {
     var chat = document.getElementById('wa-chat');
     if (!chat) { setTimeout(initDemo, 200); return; }
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          siferStartDemo();
-          observer.disconnect();
-        }
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { siferStartDemo(); obs.disconnect(); }
       });
     }, { threshold: 0.2 });
-    observer.observe(chat);
+    obs.observe(chat);
   }
 
   if (document.readyState === 'loading') {
@@ -1729,6 +1763,7 @@ Enganche mínimo del 10%. Te puedo conectar con un asesor financiero sin costo p
   } else {
     initDemo();
   }
+
 })();
 </script>
 
