@@ -613,6 +613,212 @@
     line-height: 1.7;
   }
 
+  /* ===== PRODUCT DEMO ===== */
+  .product-demo { background: var(--navy); }
+  .product-demo .section-eyebrow { color: var(--blue-light); }
+  .product-demo .section-title { color: var(--white); }
+  .product-demo .section-sub { color: rgba(255,255,255,0.5); }
+
+  .product-mockups {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-top: 4rem;
+  }
+
+  .mockup-item { position: relative; min-width: 0; }
+
+  .mockup-window {
+    background: #F7F8FC;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .mockup-topbar {
+    background: #fff;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mockup-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+  .mockup-window-title {
+    margin-left: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--gray-text);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .mockup-body { padding: 14px; }
+
+  .mockup-caption {
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    margin-top: 1.25rem;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Kanban mockup */
+  .kanban { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; min-width: 0; }
+  .kanban > div { min-width: 0; }
+
+  .kanban-col-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 8px;
+    padding: 0 2px;
+  }
+
+  .kanban-count {
+    background: var(--gray-light);
+    color: var(--gray-text);
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 10px;
+  }
+
+  .kanban-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 8px;
+    margin-bottom: 6px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .kanban-card-id {
+    font-size: 0.64rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .kanban-tag {
+    display: inline-block;
+    font-size: 0.56rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 5px;
+    margin-top: 4px;
+  }
+
+  .kanban-tag.venta { background: rgba(39,98,234,0.1); color: var(--blue); }
+  .kanban-tag.compra { background: rgba(23,166,115,0.12); color: #17A673; }
+  .kanban-tag.postulacion { background: rgba(124,92,252,0.12); color: #7C5CFC; }
+
+  .kanban-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 0.58rem;
+    color: var(--gray-text);
+  }
+
+  /* Stats mockup */
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+  .stat-tile {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .stat-tile-label {
+    font-size: 0.6rem;
+    color: var(--gray-text);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .stat-tile-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+  }
+
+  .stat-tile-delta { font-size: 0.58rem; font-weight: 700; margin-top: 2px; }
+  .stat-tile-delta.up { color: #17A673; }
+  .stat-tile-delta.neutral { color: var(--gray-text); }
+
+  .trend-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 8px;
+  }
+
+  .trend-label { font-size: 0.6rem; color: var(--gray-text); margin-bottom: 8px; font-weight: 600; }
+  .trend-bars { display: flex; align-items: flex-end; gap: 3px; height: 44px; }
+  .trend-bar { flex: 1; background: var(--blue); border-radius: 2px 2px 0 0; opacity: 0.8; }
+  .trend-bar.is-last { background: var(--blue-light); opacity: 1; }
+
+  /* Conversation mockup */
+  .conv-contact { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .conv-contact-left { display: flex; align-items: center; gap: 8px; }
+
+  .conv-avatar {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: rgba(39,98,234,0.12);
+    color: var(--blue);
+    font-size: 0.62rem;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .conv-name { font-size: 0.74rem; font-weight: 700; color: var(--text-dark); font-family: 'Montserrat', sans-serif; }
+
+  .conv-attribution {
+    background: rgba(39,98,234,0.08);
+    border: 1px solid rgba(39,98,234,0.28);
+    border-radius: 8px;
+    padding: 8px 9px;
+    display: flex;
+    gap: 7px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .conv-attribution svg { flex-shrink: 0; margin-top: 1px; }
+  .conv-attribution p { font-size: 0.64rem; color: var(--text-dark); line-height: 1.5; }
+  .conv-attribution p strong { color: var(--blue); }
+
+  .conv-bubble {
+    font-size: 0.66rem;
+    padding: 6px 9px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    max-width: 82%;
+    line-height: 1.4;
+  }
+
+  .conv-bubble.in { background: #fff; border: 1px solid var(--border); border-bottom-left-radius: 2px; }
+  .conv-bubble.out { background: var(--blue); color: #fff; margin-left: auto; border-bottom-right-radius: 2px; }
+
   /* ===== BEFORE / AFTER ===== */
   .compare { background: var(--off-white); }
 
@@ -1190,6 +1396,8 @@
     .solution-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .how-steps { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .benefits-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .product-mockups { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
     .testimonials-grid { grid-template-columns: 1fr 1fr !important; gap: 1.25rem; }
 
     /* Pricing — stack */
@@ -1246,6 +1454,9 @@
     .solution-grid { grid-template-columns: 1fr; }
     .how-steps { grid-template-columns: 1fr; }
     .benefits-grid { grid-template-columns: 1fr; }
+    .product-mockups { grid-template-columns: 1fr; margin-top: 3rem; }
+    .kanban { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
     .testimonials-grid { grid-template-columns: 1fr !important; }
 
     /* Logos strip → 3x2 */
@@ -1948,6 +2159,205 @@
       <div style="display:flex; align-items:center; justify-content:center; padding:1.5rem 2rem;  filter:grayscale(100%); opacity:0.5; transition:opacity 0.2s, filter 0.2s;" onmouseover="this.style.opacity='1';this.style.filter='grayscale(0%)'" onmouseout="this.style.opacity='0.5';this.style.filter='grayscale(100%)'">
         <img src="assets/logos/remaxdiamond.png" alt="RE/MAX Diamond" style="height:48px; width:auto; object-fit:contain;">
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTO EN ACCIÓN -->
+<section class="product-demo" id="producto">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto;">
+      <div class="section-eyebrow">Producto en acción</div>
+      <h2 class="section-title">No solo respondemos leads. Los medimos, clasificamos y sabemos de dónde vienen.</h2>
+      <p class="section-sub" style="margin:0 auto; text-align:center;">Cada conversación queda trazada desde el anuncio hasta el cierre. Así es el sistema que ven tus asesores todos los días.</p>
+    </div>
+
+    <div class="product-mockups">
+
+      <!-- MOCKUP 1: KANBAN -->
+      <div class="mockup-item">
+        <div class="mockup-window">
+          <div class="mockup-topbar">
+            <span class="mockup-dot" style="background:#FF5F57;"></span>
+            <span class="mockup-dot" style="background:#FEBC2E;"></span>
+            <span class="mockup-dot" style="background:#28C840;"></span>
+            <span class="mockup-window-title">Sifer CRM · Pipeline</span>
+          </div>
+          <div class="mockup-body">
+            <div class="kanban">
+              <div>
+                <div class="kanban-col-head">Todos <span class="kanban-count">128</span></div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4821</div>
+                  <span class="kanban-tag venta">Venta de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 2 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4796</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 41 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4774</div>
+                  <span class="kanban-tag postulacion">Postulación a asesor</span>
+                  <div class="kanban-card-foot"><span>hace 3 h</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="kanban-col-head">Nuevos <span class="kanban-count">12</span></div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4901</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 4 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4899</div>
+                  <span class="kanban-tag venta">Venta de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 22 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4895</div>
+                  <span class="kanban-tag postulacion">Postulación a asesor</span>
+                  <div class="kanban-card-foot"><span>hace 1 h</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="kanban-col-head">Calificados <span class="kanban-count">34</span></div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4867</div>
+                  <span class="kanban-tag venta">Venta de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 6 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4852</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 55 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4840</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 2 h</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="kanban-col-head">Derivaciones <span class="kanban-count">9</span></div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4788</div>
+                  <span class="kanban-tag venta">Venta de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 18 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4756</div>
+                  <span class="kanban-tag postulacion">Postulación a asesor</span>
+                  <div class="kanban-card-foot"><span>hace 4 h</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4701</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>ayer</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mockup-caption">Sabés en qué etapa está cada oportunidad, sin perseguir nada a mano.</p>
+      </div>
+
+      <!-- MOCKUP 2: STATS -->
+      <div class="mockup-item">
+        <div class="mockup-window">
+          <div class="mockup-topbar">
+            <span class="mockup-dot" style="background:#FF5F57;"></span>
+            <span class="mockup-dot" style="background:#FEBC2E;"></span>
+            <span class="mockup-dot" style="background:#28C840;"></span>
+            <span class="mockup-window-title">Sifer CRM · Métricas</span>
+          </div>
+          <div class="mockup-body">
+            <div class="stats-grid">
+              <div class="stat-tile">
+                <div class="stat-tile-label">Leads atendidos</div>
+                <div class="stat-tile-num">482</div>
+                <div class="stat-tile-delta up">▲ 18%</div>
+              </div>
+              <div class="stat-tile">
+                <div class="stat-tile-label">Tasa de calificación</div>
+                <div class="stat-tile-num">61%</div>
+                <div class="stat-tile-delta up">▲ 6%</div>
+              </div>
+              <div class="stat-tile">
+                <div class="stat-tile-label">Tasa de lectura</div>
+                <div class="stat-tile-num">94%</div>
+                <div class="stat-tile-delta up">▲ 2%</div>
+              </div>
+              <div class="stat-tile">
+                <div class="stat-tile-label">Tasa de reactivación</div>
+                <div class="stat-tile-num">27%</div>
+                <div class="stat-tile-delta up">▲ 9%</div>
+              </div>
+              <div class="stat-tile">
+                <div class="stat-tile-label">Fuera de horario</div>
+                <div class="stat-tile-num">38%</div>
+                <div class="stat-tile-delta neutral">— histórico</div>
+              </div>
+            </div>
+            <div class="trend-box">
+              <div class="trend-label">Tendencia últimos 14 días</div>
+              <div class="trend-bars">
+                <div class="trend-bar" style="height:45%;"></div>
+                <div class="trend-bar" style="height:55%;"></div>
+                <div class="trend-bar" style="height:40%;"></div>
+                <div class="trend-bar" style="height:60%;"></div>
+                <div class="trend-bar" style="height:50%;"></div>
+                <div class="trend-bar" style="height:75%;"></div>
+                <div class="trend-bar" style="height:65%;"></div>
+                <div class="trend-bar" style="height:85%;"></div>
+                <div class="trend-bar" style="height:70%;"></div>
+                <div class="trend-bar" style="height:90%;"></div>
+                <div class="trend-bar" style="height:80%;"></div>
+                <div class="trend-bar" style="height:95%;"></div>
+                <div class="trend-bar" style="height:88%;"></div>
+                <div class="trend-bar is-last" style="height:100%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mockup-caption">Métricas de gestión en tiempo real, no reportes armados a mano a fin de mes.</p>
+      </div>
+
+      <!-- MOCKUP 3: CONVERSACIÓN + ATRIBUCIÓN -->
+      <div class="mockup-item">
+        <span class="plan-badge">Atribución por campaña</span>
+        <div class="mockup-window">
+          <div class="mockup-topbar">
+            <span class="mockup-dot" style="background:#FF5F57;"></span>
+            <span class="mockup-dot" style="background:#FEBC2E;"></span>
+            <span class="mockup-dot" style="background:#28C840;"></span>
+            <span class="mockup-window-title">Sifer CRM · Conversación</span>
+          </div>
+          <div class="mockup-body">
+            <div class="conv-contact">
+              <div class="conv-contact-left">
+                <div class="conv-avatar">L</div>
+                <div class="conv-name">Lead #4821</div>
+              </div>
+              <span class="kanban-tag venta">Venta de propiedad</span>
+            </div>
+            <div class="conv-attribution">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+              <p>Vino de un anuncio de Meta: <strong>"Depto 2 amb — Núñez, lanzamiento"</strong></p>
+            </div>
+            <div class="conv-bubble in">Hola! Vi el anuncio del depto en Núñez, ¿sigue disponible?</div>
+            <div class="conv-bubble out">¡Sí! Es de 2 ambientes, entrega inmediata. ¿Buscás para vivir o invertir?</div>
+            <div class="conv-bubble in">Para invertir, ¿cuál es el valor?</div>
+            <div class="kanban-card-foot" style="margin-top:4px;">
+              <span>Asignado a Asesor #12</span>
+              <span>hace 3 min</span>
+            </div>
+          </div>
+        </div>
+        <p class="mockup-caption">Sabés exactamente qué campaña generó cada lead, desde el clic hasta el cierre.</p>
+      </div>
+
     </div>
   </div>
 </section>
