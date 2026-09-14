@@ -619,19 +619,43 @@
   .product-demo .section-title { color: var(--white); }
   .product-demo .section-sub { color: rgba(255,255,255,0.5); }
 
-  .product-mockups-grid {
+  .product-mockups {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 2.5rem;
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
     margin-top: 4rem;
   }
 
-  .wa-secondary-col {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  .mockup-item { position: relative; min-width: 0; }
+
+  .mockup-window {
+    background: #F7F8FC;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255,255,255,0.08);
   }
+
+  .mockup-topbar {
+    background: #fff;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mockup-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+  .mockup-window-title {
+    margin-left: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--gray-text);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .mockup-body { padding: 14px; }
 
   .mockup-caption {
     text-align: center;
@@ -639,191 +663,178 @@
     color: rgba(255,255,255,0.55);
     line-height: 1.6;
     margin-top: 1.25rem;
-    max-width: 340px;
+    max-width: 280px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* WhatsApp mockup (primary) */
-  .wa-mock {
-    background: #ECE5DD;
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    max-width: 400px;
-    margin: 0 auto;
-  }
+  /* Kanban mockup */
+  .kanban { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; min-width: 0; }
+  .kanban > div { min-width: 0; }
 
-  .wa-mock-header {
-    background: #075E54;
-    padding: 13px 15px;
+  .kanban-col-head {
     display: flex;
     align-items: center;
-    gap: 10px;
-  }
-
-  .wa-mock-avatar {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: #128C7E;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .wa-mock-name { font-size: 14.5px; font-weight: 600; color: #fff; font-family: 'Montserrat', sans-serif; line-height: 1.25; }
-  .wa-mock-status { font-size: 11.5px; color: rgba(255,255,255,0.65); font-family: 'Poppins', sans-serif; }
-  .wa-mock-icons { margin-left: auto; display: flex; gap: 14px; }
-
-  .wa-mock-source {
-    background: #E3EEFF;
-    padding: 8px 15px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 12px;
-    color: var(--text-dark);
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.45;
-    border-bottom: 1px solid rgba(13,27,42,0.06);
-  }
-
-  .wa-mock-source svg { flex-shrink: 0; margin-top: 2px; }
-  .wa-mock-source strong { color: var(--blue); }
-
-  .wa-mock-body {
-    padding: 12px 14px;
-    display: flex;
-    flex-direction: column;
-    min-height: 300px;
-  }
-
-  .wa-mock-date {
-    align-self: center;
-    background: rgba(0,0,0,0.08);
-    color: #555;
-    font-size: 11px;
-    padding: 3px 12px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  .wa-bubble {
-    max-width: 80%;
-    padding: 7px 9px 6px;
-    border-radius: 9px;
-    font-size: 13px;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    color: #111;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.08);
-  }
-
-  .wa-bubble.in { background: #fff; align-self: flex-start; border-top-left-radius: 2px; }
-  .wa-bubble.out { background: #DCF8C6; align-self: flex-end; border-top-right-radius: 2px; }
-
-  .wa-bubble-time {
-    display: block;
-    text-align: right;
-    margin-top: 3px;
-    font-size: 10.5px;
-    color: rgba(0,0,0,0.4);
-  }
-
-  .wa-bubble-time svg { vertical-align: -1px; margin-left: 2px; }
-
-  .wa-mock-input {
-    background: #F0F0F0;
-    padding: 9px 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-top: 0.5px solid rgba(0,0,0,0.08);
-  }
-
-  .wa-mock-input-field { flex: 1; background: #fff; border-radius: 20px; padding: 8px 14px; font-size: 12.5px; color: #bbb; font-family: 'Poppins', sans-serif; }
-  .wa-mock-send { width: 34px; height: 34px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-
-  /* Chat list mockup (secondary) */
-  .chat-list-card {
-    background: #fff;
-    border-radius: var(--r-lg);
-    box-shadow: var(--shadow-lg);
-    padding: 1.25rem 1.4rem;
-  }
-
-  .chat-list-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.82rem;
-    color: var(--text-dark);
-    margin-bottom: 0.9rem;
-  }
-
-  .chat-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .chat-row:first-of-type { border-top: none; padding-top: 0; }
-
-  .chat-row-avatar {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: rgba(39,98,234,0.1);
-    color: var(--blue);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 0.68rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .chat-row-body { flex: 1; min-width: 0; }
-  .chat-row-top { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; }
-  .chat-row-name { font-size: 0.78rem; font-weight: 700; color: var(--text-dark); font-family: 'Montserrat', sans-serif; }
-  .chat-row-time { font-size: 0.64rem; color: var(--gray-text); flex-shrink: 0; }
-  .chat-row-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 2px; }
-
-  .chat-row-preview {
-    font-size: 0.7rem;
-    color: var(--gray-text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .chat-row-tag { display: flex; align-items: center; gap: 4px; font-size: 0.6rem; font-weight: 700; flex-shrink: 0; white-space: nowrap; }
-  .chat-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  .chat-dot.venta, .chat-row-tag.venta { color: var(--blue); }
-  .chat-dot.venta { background: var(--blue); }
-  .chat-dot.compra, .chat-row-tag.compra { color: #17A673; }
-  .chat-dot.compra { background: #17A673; }
-  .chat-dot.postulacion, .chat-row-tag.postulacion { color: #7C5CFC; }
-  .chat-dot.postulacion { background: #7C5CFC; }
-
-  /* Metrics row (simple, human language) */
-  .product-metrics {
-    display: flex;
     justify-content: space-between;
-    gap: 1.5rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--r-lg);
-    padding: 1.25rem 1.5rem;
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 8px;
+    padding: 0 2px;
   }
+
+  .kanban-count {
+    background: var(--gray-light);
+    color: var(--gray-text);
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 10px;
+  }
+
+  .kanban-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 8px;
+    margin-bottom: 6px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .kanban-card-id {
+    font-size: 0.64rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .kanban-tag {
+    display: inline-block;
+    font-size: 0.56rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 5px;
+    margin-top: 4px;
+  }
+
+  .kanban-tag.venta { background: rgba(39,98,234,0.1); color: var(--blue); }
+  .kanban-tag.compra { background: rgba(23,166,115,0.12); color: #17A673; }
+  .kanban-tag.postulacion { background: rgba(124,92,252,0.12); color: #7C5CFC; }
+
+  .kanban-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 0.58rem;
+    color: var(--gray-text);
+  }
+
+  /* Stats mockup */
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+  .stat-tile {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .stat-tile-label {
+    font-size: 0.6rem;
+    color: var(--gray-text);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .stat-tile-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+  }
+
+  .stat-tile-delta { font-size: 0.58rem; font-weight: 700; margin-top: 2px; }
+  .stat-tile-delta.up { color: #17A673; }
+  .stat-tile-delta.neutral { color: var(--gray-text); }
+
+  /* Conversation mockup */
+  .conv-contact { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .conv-contact-left { display: flex; align-items: center; gap: 8px; }
+
+  .conv-avatar {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: rgba(39,98,234,0.12);
+    color: var(--blue);
+    font-size: 0.62rem;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .conv-name { font-size: 0.74rem; font-weight: 700; color: var(--text-dark); font-family: 'Montserrat', sans-serif; }
+
+  .conv-attribution {
+    background: var(--gray-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 9px;
+    display: flex;
+    gap: 7px;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+
+  .conv-attribution svg { flex-shrink: 0; margin-top: 1px; color: var(--gray-text); }
+  .conv-attribution p { font-size: 0.64rem; color: var(--text-dark); line-height: 1.5; }
+  .conv-attribution p strong { color: var(--text-dark); }
+
+  .conv-badge {
+    position: absolute;
+    top: -12px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 0.3rem 0.7rem 0.3rem 0.55rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 2;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .conv-badge svg { flex-shrink: 0; }
+
+  .conv-badge-source {
+    left: 10px;
+    background: #fff;
+    color: var(--text-dark);
+    border: 1px solid var(--border);
+  }
+
+  .conv-badge-ai {
+    right: 10px;
+    background: var(--blue);
+    color: #fff;
+  }
+
+  .conv-bubble {
+    font-size: 0.66rem;
+    padding: 6px 9px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    max-width: 82%;
+    line-height: 1.4;
+  }
+
+  .conv-bubble.in { background: #fff; border: 1px solid var(--border); border-bottom-left-radius: 2px; }
+  .conv-bubble.out { background: var(--blue); color: #fff; margin-left: auto; border-bottom-right-radius: 2px; }
 
   /* ===== BEFORE / AFTER ===== */
   .compare { background: var(--off-white); }
@@ -1402,7 +1413,8 @@
     .solution-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .how-steps { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .benefits-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .product-mockups-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+    .product-mockups { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
     .testimonials-grid { grid-template-columns: 1fr 1fr !important; gap: 1.25rem; }
 
     /* Pricing — stack */
@@ -1459,8 +1471,11 @@
     .solution-grid { grid-template-columns: 1fr; }
     .how-steps { grid-template-columns: 1fr; }
     .benefits-grid { grid-template-columns: 1fr; }
-    .product-mockups-grid { margin-top: 3rem; gap: 2rem; }
-    .product-metrics { flex-wrap: wrap; gap: 1.25rem 1.5rem; }
+    .product-mockups { grid-template-columns: 1fr; margin-top: 3rem; }
+    .kanban { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .conv-badge { position: static; margin-bottom: 6px; }
+    .conv-badge-ai { margin-bottom: 10px; }
     .testimonials-grid { grid-template-columns: 1fr !important; }
 
     /* Logos strip → 3x2 */
@@ -2170,131 +2185,184 @@
 <!-- PRODUCTO EN ACCIÓN -->
 <section class="product-demo" id="producto">
   <div class="container">
-    <div style="text-align:center; max-width:680px; margin:0 auto;">
+    <div style="text-align:center; max-width:720px; margin:0 auto;">
       <div class="section-eyebrow">Producto en acción</div>
-      <h2 class="section-title">Tu WhatsApp, pero nunca deja a nadie sin respuesta.</h2>
-      <p class="section-sub" style="margin:0 auto; text-align:center;">Vos seguís hablando desde el mismo número de siempre. Nosotros nos encargamos de que cada mensaje se conteste, se ordene y sepas de dónde vino.</p>
+      <h2 class="section-title">Un agente de IA responde en tu WhatsApp. Vos solo cerrás la venta.</h2>
+      <p class="section-sub" style="margin:0 auto; text-align:center;">Es tu mismo número de WhatsApp Business de siempre. Ahora cada mensaje se contesta al instante, se ordena solo y sabés de qué campaña vino cada lead.</p>
     </div>
 
-    <div class="product-mockups-grid">
+    <div class="product-mockups">
 
-      <!-- MOCKUP PRINCIPAL: CHAT DE WHATSAPP -->
-      <div>
-        <div class="wa-mock">
-          <div class="wa-mock-header">
-            <div class="wa-mock-avatar">M</div>
-            <div>
-              <div class="wa-mock-name">Martina R.</div>
-              <div class="wa-mock-status">en línea</div>
-            </div>
-            <div class="wa-mock-icons">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-            </div>
+      <!-- MOCKUP 1: KANBAN -->
+      <div class="mockup-item">
+        <div class="mockup-window">
+          <div class="mockup-topbar">
+            <span class="mockup-dot" style="background:#FF5F57;"></span>
+            <span class="mockup-dot" style="background:#FEBC2E;"></span>
+            <span class="mockup-dot" style="background:#28C840;"></span>
+            <span class="mockup-window-title">Tu WhatsApp, ordenado solo</span>
           </div>
-          <div class="wa-mock-source">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
-            <span>De qué anuncio vino: <strong>"Depto 2 amb — Núñez, lanzamiento"</strong></span>
-          </div>
-          <div class="wa-mock-body">
-            <div class="wa-mock-date">Hoy</div>
-            <div class="wa-bubble in">Hola! Vi el anuncio del depto en Núñez, ¿todavía está disponible?<span class="wa-bubble-time">10:14</span></div>
-            <div class="wa-bubble out">¡Hola Martina! Sí, sigue disponible 😊 Es de 2 ambientes, entrega inmediata. ¿Lo buscás para vivir o para invertir?<span class="wa-bubble-time">10:14 <svg width="13" height="9" viewBox="0 0 16 11" fill="none"><path d="M1 5.5L4.5 9L11 1.5" stroke="#4FC3F7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 5.5L9 9L15.5 1.5" stroke="#4FC3F7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-            <div class="wa-bubble in">Para invertir. ¿Cuál es el valor?<span class="wa-bubble-time">10:16</span></div>
-            <div class="wa-bubble out">Arranca en USD 98.000. Te paso la ficha y coordinamos una visita esta semana 🙂<span class="wa-bubble-time">10:16 <svg width="13" height="9" viewBox="0 0 16 11" fill="none"><path d="M1 5.5L4.5 9L11 1.5" stroke="#4FC3F7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 5.5L9 9L15.5 1.5" stroke="#4FC3F7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-          </div>
-          <div class="wa-mock-input">
-            <div class="wa-mock-input-field">Mensaje</div>
-            <div class="wa-mock-send">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+          <div class="mockup-body">
+            <div class="kanban">
+              <div>
+                <div class="kanban-col-head">Todos <span class="kanban-count">128</span></div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4821</div>
+                  <span class="kanban-tag venta">Venta de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 2 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4796</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 41 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4774</div>
+                  <span class="kanban-tag postulacion">Postulación a asesor</span>
+                  <div class="kanban-card-foot"><span>hace 3 h</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="kanban-col-head">Nuevos <span class="kanban-count">12</span></div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4901</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 4 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4899</div>
+                  <span class="kanban-tag venta">Venta de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 22 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4895</div>
+                  <span class="kanban-tag postulacion">Postulación a asesor</span>
+                  <div class="kanban-card-foot"><span>hace 1 h</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="kanban-col-head">Contestados <span class="kanban-count">34</span></div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4867</div>
+                  <span class="kanban-tag venta">Venta de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 6 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4852</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 55 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4840</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 2 h</span></div>
+                </div>
+              </div>
+              <div>
+                <div class="kanban-col-head">Pasados a un asesor <span class="kanban-count">9</span></div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4788</div>
+                  <span class="kanban-tag venta">Venta de propiedad</span>
+                  <div class="kanban-card-foot"><span>hace 18 min</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4756</div>
+                  <span class="kanban-tag postulacion">Postulación a asesor</span>
+                  <div class="kanban-card-foot"><span>hace 4 h</span></div>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-id">Lead #4701</div>
+                  <span class="kanban-tag compra">Compra de propiedad</span>
+                  <div class="kanban-card-foot"><span>ayer</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <p class="mockup-caption">Es tu WhatsApp de siempre. Solo que ahora nadie se queda esperando.</p>
+        <p class="mockup-caption">Sabés en qué etapa está cada oportunidad, sin perseguir nada a mano.</p>
       </div>
 
-      <!-- COLUMNA SECUNDARIA: LISTA DE CHATS + MÉTRICAS -->
-      <div class="wa-secondary-col">
-
-        <div>
-          <div class="chat-list-card">
-            <div class="chat-list-title">Así quedan organizados</div>
-
-            <div class="chat-row">
-              <div class="chat-row-avatar">M</div>
-              <div class="chat-row-body">
-                <div class="chat-row-top">
-                  <span class="chat-row-name">Martina R.</span>
-                  <span class="chat-row-time">10:16</span>
-                </div>
-                <div class="chat-row-bottom">
-                  <span class="chat-row-preview">Arranca en USD 98.000, te paso la ficha...</span>
-                  <span class="chat-row-tag venta"><span class="chat-dot venta"></span>Venta</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="chat-row">
-              <div class="chat-row-avatar">J</div>
-              <div class="chat-row-body">
-                <div class="chat-row-top">
-                  <span class="chat-row-name">Julián P.</span>
-                  <span class="chat-row-time">09:52</span>
-                </div>
-                <div class="chat-row-bottom">
-                  <span class="chat-row-preview">¿Cuánto sale el de 2 ambientes?</span>
-                  <span class="chat-row-tag compra"><span class="chat-dot compra"></span>Compra</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="chat-row">
-              <div class="chat-row-avatar">C</div>
-              <div class="chat-row-body">
-                <div class="chat-row-top">
-                  <span class="chat-row-name">Camila S.</span>
-                  <span class="chat-row-time">09:10</span>
-                </div>
-                <div class="chat-row-bottom">
-                  <span class="chat-row-preview">Quiero postularme como asesora</span>
-                  <span class="chat-row-tag postulacion"><span class="chat-dot postulacion"></span>Postulación</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="chat-row">
-              <div class="chat-row-avatar">N</div>
-              <div class="chat-row-body">
-                <div class="chat-row-top">
-                  <span class="chat-row-name">Nicolás D.</span>
-                  <span class="chat-row-time">ayer</span>
-                </div>
-                <div class="chat-row-bottom">
-                  <span class="chat-row-preview">Perfecto, paso el viernes a verlo</span>
-                  <span class="chat-row-tag venta"><span class="chat-dot venta"></span>Pasó a un asesor</span>
-                </div>
-              </div>
-            </div>
-
+      <!-- MOCKUP 2: STATS -->
+      <div class="mockup-item">
+        <div class="mockup-window">
+          <div class="mockup-topbar">
+            <span class="mockup-dot" style="background:#FF5F57;"></span>
+            <span class="mockup-dot" style="background:#FEBC2E;"></span>
+            <span class="mockup-dot" style="background:#28C840;"></span>
+            <span class="mockup-window-title">Resultados, sin armar planillas</span>
           </div>
-          <p class="mockup-caption">Cada conversación queda ordenada sola, sin que nadie tenga que anotarla en una planilla.</p>
-        </div>
-
-        <div class="product-metrics">
-          <div class="hero-stat">
-            <div class="hero-stat-num">482</div>
-            <div class="hero-stat-label">Mensajes atendidos</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">94%</div>
-            <div class="hero-stat-label">Contestados a tiempo</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">27%</div>
-            <div class="hero-stat-label">Volvieron a escribir</div>
+          <div class="mockup-body">
+            <div class="stats-grid">
+              <div class="stat-tile">
+                <div class="stat-tile-label">Personas atendidas</div>
+                <div class="stat-tile-num">482</div>
+                <div class="stat-tile-delta up">▲ 18%</div>
+              </div>
+              <div class="stat-tile">
+                <div class="stat-tile-label">Contestadas al instante</div>
+                <div class="stat-tile-num">61%</div>
+                <div class="stat-tile-delta up">▲ 6%</div>
+              </div>
+              <div class="stat-tile">
+                <div class="stat-tile-label">Mensajes leídos</div>
+                <div class="stat-tile-num">94%</div>
+                <div class="stat-tile-delta up">▲ 2%</div>
+              </div>
+              <div class="stat-tile">
+                <div class="stat-tile-label">Volvieron a escribir</div>
+                <div class="stat-tile-num">27%</div>
+                <div class="stat-tile-delta up">▲ 9%</div>
+              </div>
+              <div class="stat-tile">
+                <div class="stat-tile-label">Atendidas fuera de horario</div>
+                <div class="stat-tile-num">38%</div>
+                <div class="stat-tile-delta neutral">— histórico</div>
+              </div>
+            </div>
           </div>
         </div>
+        <p class="mockup-caption">Resultados claros, sin planillas ni reportes armados a mano.</p>
+      </div>
 
+      <!-- MOCKUP 3: CONVERSACIÓN + ATRIBUCIÓN -->
+      <div class="mockup-item">
+        <span class="conv-badge conv-badge-source">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+          De qué anuncio vino
+        </span>
+        <span class="conv-badge conv-badge-ai">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4L12 3z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></svg>
+          Responde tu Agente IA
+        </span>
+        <div class="mockup-window">
+          <div class="mockup-topbar">
+            <span class="mockup-dot" style="background:#FF5F57;"></span>
+            <span class="mockup-dot" style="background:#FEBC2E;"></span>
+            <span class="mockup-dot" style="background:#28C840;"></span>
+            <span class="mockup-window-title">Tu Agente IA · Conversación</span>
+          </div>
+          <div class="mockup-body">
+            <div class="conv-contact">
+              <div class="conv-contact-left">
+                <div class="conv-avatar">M</div>
+                <div class="conv-name">Martina R.</div>
+              </div>
+              <span class="kanban-tag venta">Venta de propiedad</span>
+            </div>
+            <div class="conv-attribution">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+              <p>Vino de un anuncio de Meta: <strong>"Depto 2 amb — Núñez, lanzamiento"</strong></p>
+            </div>
+            <div class="conv-bubble in">Hola! Vi el anuncio del depto en Núñez, ¿sigue disponible?</div>
+            <div class="conv-bubble out">¡Sí! Es de 2 ambientes, entrega inmediata. ¿Buscás para vivir o invertir?</div>
+            <div class="conv-bubble in">Para invertir, ¿cuál es el valor?</div>
+            <div class="kanban-card-foot" style="margin-top:4px;">
+              <span>Asignado a Asesor #12</span>
+              <span>hace 3 min</span>
+            </div>
+          </div>
+        </div>
+        <p class="mockup-caption">Un agente de IA responde en segundos, en tu propio número de WhatsApp Business. Vos solo entrás a cerrar.</p>
       </div>
 
     </div>
